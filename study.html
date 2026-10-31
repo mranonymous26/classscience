@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b18">
+
+  <title>Study Zone | ClassVerse</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #080b18;
+      --card: #11172a;
+      --text: #f4f6ff;
+      --muted: #9ba5bd;
+      --purple: #8b5cf6;
+      --cyan: #22d3ee;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      width: 100%;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(8,11,24,0.9);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -0.7px;
+      background: linear-gradient(90deg, #a78bfa, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #29314b;
+      background: #11172a;
+      color: white;
+      border-radius: 12px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 7%;
+      top: 75px;
+      width: 190px;
+      background: #151c31;
+      border: 1px solid #303954;
+      border-radius: 14px;
+      padding: 9px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    .dropdown.show {
+      display: block;
+      animation: appear 0.2s ease;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 12px;
+      color: #dce3f7;
+      border-radius: 9px;
+      font-size: 14px;
+    }
+
+    .dropdown a:hover {
+      background: #252d49;
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 45px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid rgba(139,92,246,0.35);
+      background: rgba(139,92,246,0.1);
+      color: #c4b5fd;
+      border-radius: 30px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 60px);
+      font-weight: 850;
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #a78bfa, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    .resources {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 25px 7% 80px;
+    }
+
+    .section-heading {
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .resource-card {
+      position: relative;
+      background: linear-gradient(145deg, #151d34, #0e1426);
+      border: 1px solid #252f4b;
+      border-radius: 19px;
+      padding: 23px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s ease;
+      overflow: hidden;
+    }
+
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: rgba(139,92,246,0.09);
+      filter: blur(35px);
+      border-radius: 50%;
+      top: -45px;
+      right: -35px;
+      pointer-events: none;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      border-color: #8062d8;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .resource-icon {
+      width: 47px;
+      height: 47px;
+      display: grid;
+      place-items: center;
+      background: rgba(139,92,246,0.15);
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: 13px;
+      font-size: 23px;
+      margin-bottom: 17px;
+    }
+
+    .resource-card h3 {
+      font-size: 17px;
+      margin-bottom: 9px;
+      line-height: 1.4;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .visit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: fit-content;
+      margin-top: auto;
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      background: linear-gradient(100deg, #7548db, #287fbc);
+      transition: 0.2s;
+    }
+
+    .visit-btn:hover {
+      filter: brightness(1.2);
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 25px 15px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      color: #8993aa;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .footer strong {
+      color: #c4b5fd;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-7px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        padding: 17px 6%;
+      }
+
+      .hero {
+        padding: 65px 20px 35px;
+      }
+
+      .resources {
+        padding: 20px 6% 60px;
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .resource-card {
+        min-height: 175px;
+        padding: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">ClassVerse.</a>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Open navigation menu"
+      aria-expanded="false">⋮</button>
+
+    <nav class="dropdown" id="dropdown">
+      <a href="index.html">Home</a>
+      <a href="study.html">Study Zone</a>
+      <a href="memories.html">Memories</a>
+      <a href="games.html">Games & Quiz</a>
+      <a href="notices.html">Notice Board</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="tag">CLASS 11TH A • SCIENCE</div>
+
+    <h1>Study <span>Zone.</span></h1>
+
+    <p>
+      Your learning space for study materials,
+      NCERT solutions, practice tests and books.
+    </p>
+  </section>
+
+  <!-- RESOURCES -->
+  <main class="resources">
+
+    <div class="section-heading">
+      <h2>Study Resources</h2>
+      <p>Explore useful learning platforms and resources.</p>
+    </div>
+
+    <div class="resource-grid">
+
+      <!-- 1. PW BATCHES -->
+      <article class="resource-card">
+        <div class="resource-icon">🎓</div>
+        <h3>Get All PW Batches</h3>
+        <p>Explore available Physics Wallah batch resources.</p>
+        <a class="visit-btn"
+          href="https://pwthor.live/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Visit Website ↗
+        </a>
+      </article>
+
+      <!-- 2. NCERT SOLUTIONS -->
+      <article class="resource-card">
+        <div class="resource-icon">📚</div>
+        <h3>Get UP NCERT Solutions</h3>
+        <p>Find NCERT solutions and chapter-wise study help.</p>
+        <a class="visit-btn"
+          href="https://www.learncbse.in/ncert-solutions-2/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Visit Website ↗
+        </a>
+      </article>
+
+      <!-- 3. QUIZ AND TESTS -->
+      <article class="resource-card">
+        <div class="resource-icon">🧠</div>
+        <h3>Quiz & Tests</h3>
+        <p>Practice questions and test your subject knowledge.</p>
+        <a class="visit-btn"
+          href="https://play.google.com/store/apps/details?id=com.quizlook"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open App ↗
+        </a>
+      </article>
+
+      <!-- 4. NEXT TOPPERS AND PW -->
+      <article class="resource-card">
+        <div class="resource-icon">🚀</div>
+        <h3>Free Next Toppers & PW Batch</h3>
+        <p>Explore the available educational resources.</p>
+        <a class="visit-btn"
+          href="https://asmultiverse.in/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Visit Website ↗
+        </a>
+      </article>
+
+      <!-- 5. BOOKS PDF -->
+      <article class="resource-card">
+        <div class="resource-icon">📖</div>
+        <h3>Free Books PDF</h3>
+        <p>Explore books and study materials like RD Sharma and S. Chand modules.</p>
+        <a class="visit-btn"
+          href="https://asmultiverse.in/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Visit Website ↗
+        </a>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <strong>ClassVerse</strong> | ClassScience || JNV Meerut
+    <br>
+    Class 11th A • Science Stream
+    <br>
+    © 2026 ClassVerse. All Rights Reserved.
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const dropdown = document.getElementById("dropdown");
+
+    menuBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      const isOpen = dropdown.classList.toggle("show");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!dropdown.contains(event.target) &&
+          !menuBtn.contains(event.target)) {
+        dropdown.classList.remove("show");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        dropdown.classList.remove("show");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+
+</body>
+</html>
