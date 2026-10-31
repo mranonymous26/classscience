@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="ClassVerse - ClassScience, JNV Meerut Class 11th A Science. Learning, memories, music and more.">
+
+<title>ClassVerse | ClassScience - JNV Meerut</title>
+
+<style>
+/* ==============================
+   CLASSVERSE - MAIN STYLESHEET
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080b14;
+  --card: #111827;
+  --card2: #151d2d;
+  --text: #f5f7ff;
+  --muted: #9ba7bd;
+  --purple: #9278ff;
+  --cyan: #27dcca;
+  --border: rgba(255,255,255,.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.gradient {
+  background: linear-gradient(90deg, #a78bfa, #27dcca);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 5vw, 39px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tag {
+  display: inline-block;
+  padding: 9px 17px;
+  border: 1px solid #9278ff70;
+  border-radius: 30px;
+  color: #c2b5ff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+  background: #9278ff10;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 14px 23px;
+  background: linear-gradient(100deg, #8067f5, #6852dc);
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px #8067f540;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: #ffffff35;
+}
+
+.btn-outline:hover {
+  background: #ffffff12;
+}
+
+/* NAVBAR */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8,11,20,.90);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #b4bfd1;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 35%, #5541a52b, transparent 55%),
+    radial-gradient(ellipse at 10% 90%, #1d8b9c16, transparent 45%);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .15;
+  pointer-events: none;
+}
+
+.hero::before {
+  background: #8b5cf6;
+  top: 5%;
+  left: -100px;
+}
+
+.hero::after {
+  background: #00d6c4;
+  right: -100px;
+  bottom: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: clamp(43px, 8vw, 78px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -3px;
+  margin-bottom: 22px;
+}
+
+.hero-description {
+  max-width: 650px;
+  margin: auto;
+  color: #aab5c9;
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.hero-meta {
+  margin-top: 55px;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.meta-item strong {
+  display: block;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* CLASS INFO */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.info-card {
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, #151d2d, #0e1421);
+  border-radius: 17px;
+  transition: .35s;
+}
+
+.info-card:hover {
+  transform: translateY(-7px);
+  border-color: #9278ff80;
+}
+
+.info-icon {
+  font-size: 35px;
+  margin-bottom: 17px;
+}
+
+.info-card h3 {
+  margin-bottom: 9px;
+  font-size: 18px;
+}
+
+.info-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* SUBJECTS */
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.subject-card {
+  padding: 30px;
+  border-radius: 17px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: .35s;
+}
+
+.subject-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--purple);
+}
+
+.subject-icon {
+  font-size: 40px;
+  margin-bottom: 18px;
+}
+
+.subject-card h3 {
+  font-size: 21px;
+  margin-bottom: 12px;
+}
+
+.subject-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* RESOURCES */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.resource-card {
+  padding: 25px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: .3s;
+}
+
+.resource-card:hover {
+  border-color: #9278ff80;
+  transform: translateY(-4px);
+}
+
+.resource-card h3 {
+  margin-bottom: 9px;
+  font-size: 17px;
+}
+
+.resource-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* MEMORIES */
+
+.memories-box {
+  padding: 40px 30px;
+  text-align: center;
+  border: 1px solid #9278ff50;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top, #8067f51d, transparent 65%),
+    var(--card);
+}
+
+.memories-box .big-icon {
+  font-size: 48px;
+  margin-bottom: 18px;
+}
+
+.memories-box h3 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.memories-box p {
+  max-width: 650px;
+  margin: 0 auto 22px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* INSTAGRAM PROFILE */
+
+.instagram-card {
+  max-width: 760px;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #171c2b, #101522);
+  border: 1px solid var(--border);
+  transition: .3s;
+}
+
+.instagram-card:hover {
+  border-color: #d946ef80;
+  transform: translateY(-5px);
+}
+
+.instagram-avatar {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #ffb347, #e1306c, #833ab4);
+}
+
+.instagram-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #111827;
+}
+
+.instagram-info {
+  flex: 1;
+}
+
+.instagram-info h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.instagram-info .handle {
+  color: #b9a8ff;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.instagram-info p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+/* EXTERNAL FEATURES */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  min-height: 260px;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #171f32, #101522);
+  transition: .35s;
+}
+
+.feature-card:hover {
+  transform: translateY(-7px);
+  border-color: #9278ff80;
+}
+
+.feature-card .feature-icon {
+  font-size: 43px;
+  margin-bottom: 18px;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  margin-bottom: 11px;
+}
+
+.feature-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.feature-label {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #c3b5ff;
+  border: 1px solid #9278ff55;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about-art {
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  font-size: 100px;
+  background:
+    radial-gradient(circle at 50% 50%, #9278ff44, transparent 60%),
+    linear-gradient(135deg, #171f32, #102d38);
+  border: 1px solid var(--border);
+}
+
+.about-text h2 {
+  font-size: 34px;
+  line-height: 1.3;
+  margin: 15px 0;
+}
+
+.about-text p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 14px;
+  margin-bottom: 13px;
+}
+
+/* CONTACT */
+
+.contact-box {
+  max-width: 650px;
+  margin: auto;
+  padding: 32px;
+  border-radius: 17px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.contact-box h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.contact-box p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 45px 0 25px;
+  background: #070a11;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.footer-brand {
+  max-width: 350px;
+}
+
+.footer-brand h2 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-links h4 {
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+  transition: .2s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 23px;
+  color: #8994a9;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.copyright strong {
+  color: #c5b8ff;
+}
+
+.disclaimer {
+  margin-top: 8px;
+  color: #a7aebe;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content {
+  animation: heroEnter 1s ease both;
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.about-art {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* BACK TO TOP */
+
+.top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #ffffff20;
+  border-radius: 50%;
+  color: white;
+  background: #8067f5;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 500;
+}
+
+.top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    padding: 24px 6%;
+    background: #111827;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 21px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .info-grid,
+  .subject-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-grid,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .instagram-avatar {
+    width: 135px;
+    height: 135px;
+  }
+
+  .about-art {
+    min-height: 230px;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+}
+
+@media(max-width: 480px) {
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero-meta {
+    gap: 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .memories-box,
+  .contact-box {
+    padding: 25px 19px;
+  }
+
+  .instagram-card {
+    padding: 24px 18px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#home" class="logo">Class<span>Verse.</span></a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#class">Our Class</a></li>
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#resources">Study Zone</a></li>
+        <li><a href="#memories">Memories</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#more">More</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+  <div class="container hero-content">
+
+    <span class="tag">JAWAHAR NAVODAYA VIDYALAYA • MEERUT</span>
+
+    <h1>
+      Welcome to<br>
+      <span class="gradient">ClassVerse.</span>
+    </h1>
+
+    <p class="hero-description">
+      ClassScience || JNV Meerut<br>
+      Class 11th A • Science Stream<br>
+      Learn Together. Grow Together. Create Memories Forever.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#class" class="btn">Explore Our Class ↗</a>
+      <a href="#memories" class="btn btn-outline">Explore Memories</a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <strong>1986</strong>
+        JNV Meerut Established
+      </div>
+
+      <div class="meta-item">
+        <strong>2021–2028 ❤️</strong>
+        Our Batch
+      </div>
+
+      <div class="meta-item">
+        <strong>11th A</strong>
+        Science Section
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= OUR CLASS ================= -->
+
+<section class="section" id="class">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Our <span class="gradient">Class 11th A</span></h2>
+      <p>A classroom full of dreams, friendship and possibilities.</p>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-card reveal">
+        <div class="info-icon">🏫</div>
+        <h3>JNV Meerut</h3>
+        <p>Jawahar Navodaya Vidyalaya<br>Established in 1986</p>
+      </div>
+
+      <div class="info-card reveal">
+        <div class="info-icon">🔬</div>
+        <h3>Science Stream</h3>
+        <p>Class 11th • Section A<br>Physics, Chemistry & Mathematics</p>
+      </div>
+
+      <div class="info-card reveal">
+        <div class="info-icon">🤝</div>
+        <h3>Our Batch</h3>
+        <p>Batch 2021–2028<br>Growing and learning together</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUBJECTS ================= -->
+
+<section class="section" id="subjects">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Our <span class="gradient">Subjects</span></h2>
+      <p>Explore the world of science and mathematics.</p>
+    </div>
+
+    <div class="subject-grid">
+
+      <div class="subject-card reveal">
+        <div class="subject-icon">⚛️</div>
+        <h3>Physics</h3>
+        <p>Explore mechanics, motion, energy, waves and the laws that explain our universe.</p>
+      </div>
+
+      <div class="subject-card reveal">
+        <div class="subject-icon">🧪</div>
+        <h3>Chemistry</h3>
+        <p>Discover atoms, molecules, chemical reactions, elements and the world of matter.</p>
+      </div>
+
+      <div class="subject-card reveal">
+        <div class="subject-icon">📐</div>
+        <h3>Mathematics</h3>
+        <p>Learn algebra, trigonometry, calculus and mathematical concepts through practice.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= STUDY ZONE ================= -->
+
+<section class="section" id="resources">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Study <span class="gradient">Zone</span></h2>
+      <p>Learn, practise and prepare for your next challenge.</p>
+    </div>
+
+    <div class="resource-grid">
+
+      <div class="resource-card reveal">
+        <h3>📚 Class Notes</h3>
+        <p>Organized notes and important concepts for every subject.</p>
+      </div>
+
+      <div class="resource-card reveal">
+        <h3>📝 Practice Questions</h3>
+        <p>Improve your understanding through regular question practice.</p>
+      </div>
+
+      <div class="resource-card reveal">
+        <h3>📖 NCERT Learning</h3>
+        <p>Chapter-wise learning and textbook-based preparation.</p>
+      </div>
+
+      <div class="resource-card reveal">
+        <h3>🎯 Exam Preparation</h3>
+        <p>Revision materials and preparation resources for examinations.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MEMORIES ================= -->
+
+<section class="section" id="memories">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Our <span class="gradient">Memories</span></h2>
+      <p>Some moments deserve to stay forever.</p>
+    </div>
+
+    <div class="memories-box reveal">
+      <div class="big-icon">📸</div>
+
+      <h3>Every Picture Tells a Story</h3>
+
+      <p>
+        School trips, celebrations, classroom moments and unforgettable
+        memories — let's collect them all in one place.
+        Want your photos featured on our website?
+      </p>
+
+      <a
+        class="btn"
+        href="https://ig.me/m/_class11th.science_"
+        target="_blank"
+        rel="noopener noreferrer">
+        DM Here to Add Your Photos ↗
+      </a>
+
+      <p style="margin-top:18px; margin-bottom:0; font-size:12px;">
+        Photos are added after review. Please share only pictures
+        that everyone shown has agreed to publish.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+
+<section class="section" id="instagram">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Connect With <span class="gradient">Us</span></h2>
+      <p>Follow our class Instagram page for updates and memories.</p>
+    </div>
+
+    <div class="instagram-card reveal">
+
+      <div class="instagram-avatar">
+        <img
+          src="instaprofile.png"
+          alt="Class 11th Science Instagram profile"
+          loading="lazy"
+          onerror="this.style.display='none'">
+      </div>
+
+      <div class="instagram-info">
+        <h3>Class 11th Science</h3>
+        <div class="handle">@_class11th.science_</div>
+
+        <p>
+          Class 11th Science<br>
+          Batch - 2021 - 2028 ❤️<br>
+          Scroll • Watch • Disappear<br>
+          Any Query, Issues & Promotion — DM Available.
+        </p>
+
+        <a
+          class="btn"
+          href="https://www.instagram.com/_class11th.science_?rpxt=eGVlZ3lnNmwzendv"
+          target="_blank"
+          rel="noopener noreferrer">
+          Follow Us on Instagram ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= MORE FEATURES ================= -->
+
+<section class="section" id="more">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Explore <span class="gradient">More</span></h2>
+      <p>Discover more experiences from ClassVerse.</p>
+    </div>
+
+    <div class="feature-grid">
+
+      <!-- NEONWAVE -->
+
+      <div class="feature-card reveal">
+        <span class="feature-la
