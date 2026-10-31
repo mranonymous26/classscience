@@ -10,10 +10,6 @@
 <title>ClassVerse | ClassScience - JNV Meerut</title>
 
 <style>
-/* ==============================
-   CLASSVERSE - MAIN STYLESHEET
-================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
@@ -64,12 +60,13 @@ button {
 }
 
 .section {
-  padding: 90px 0;
+  padding: 85px 0;
+  scroll-margin-top: 85px;
 }
 
 .section-heading {
   text-align: center;
-  margin-bottom: 45px;
+  margin-bottom: 42px;
 }
 
 .section-heading h2 {
@@ -126,13 +123,13 @@ button {
   background: #ffffff12;
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(8,11,20,.90);
+  background: rgba(8,11,20,.94);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
 }
@@ -142,12 +139,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 15px;
 }
 
 .logo {
   font-size: 24px;
   font-weight: 900;
   letter-spacing: -1px;
+  white-space: nowrap;
 }
 
 .logo span {
@@ -157,28 +156,79 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 23px;
+  gap: 17px;
   list-style: none;
 }
 
 .nav-links a {
   color: #b4bfd1;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   transition: .3s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
   color: white;
 }
 
-.menu-btn {
+/* THREE DOT MENU */
+
+.menu-wrap {
+  position: relative;
   display: none;
-  background: none;
-  border: 0;
+}
+
+.menu-btn {
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #151d2d;
   color: white;
   font-size: 27px;
   cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 235px;
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: 10px;
+  background: #151d2d;
+  border: 1px solid #ffffff20;
+  border-radius: 14px;
+  box-shadow: 0 15px 45px #0008;
+}
+
+.dropdown-menu.active {
+  display: block;
+  animation: menuOpen .2s ease;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 13px;
+  color: #d7dced;
+  font-size: 13px;
+  border-radius: 8px;
+  transition: .2s;
+}
+
+.dropdown-menu a:hover {
+  background: #9278ff22;
+  color: white;
+}
+
+@keyframes menuOpen {
+  from { opacity: 0; transform: translateY(-7px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* HERO */
@@ -225,6 +275,7 @@ nav {
   padding: 100px 0;
   max-width: 900px;
   margin: auto;
+  animation: heroEnter 1s ease both;
 }
 
 .hero h1 {
@@ -267,7 +318,7 @@ nav {
 .meta-item strong {
   display: block;
   color: white;
-  font-size: 16px;
+  font-size: 17px;
   margin-bottom: 5px;
 }
 
@@ -408,7 +459,7 @@ nav {
   line-height: 1.9;
 }
 
-/* INSTAGRAM PROFILE */
+/* INSTAGRAM */
 
 .instagram-card {
   max-width: 760px;
@@ -467,7 +518,7 @@ nav {
   margin-bottom: 18px;
 }
 
-/* EXTERNAL FEATURES */
+/* EXPLORE MORE */
 
 .feature-grid {
   display: grid;
@@ -491,7 +542,7 @@ nav {
   border-color: #9278ff80;
 }
 
-.feature-card .feature-icon {
+.feature-icon {
   font-size: 43px;
   margin-bottom: 18px;
 }
@@ -520,6 +571,93 @@ nav {
   border-radius: 20px;
 }
 
+/* STUDENT DIRECTORY */
+
+.student-summary {
+  max-width: 420px;
+  margin: 0 auto 28px;
+  padding: 22px;
+  text-align: center;
+  border: 1px solid #9278ff55;
+  background: linear-gradient(135deg, #191d35, #101c29);
+  border-radius: 16px;
+}
+
+.student-summary strong {
+  display: block;
+  font-size: 42px;
+  color: #b8a6ff;
+  margin-bottom: 5px;
+}
+
+.student-summary span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.student-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: .25s;
+}
+
+.student-item:hover {
+  transform: translateY(-3px);
+  border-color: #9278ff80;
+}
+
+.student-letter {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #9278ff22;
+  color: #c3b5ff;
+  font-weight: 800;
+}
+
+.student-item span:last-child {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* CONTENT REMOVAL NOTICE */
+
+.content-notice {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 25px;
+  border: 1px solid #e5a04a55;
+  background: #e5a04a0c;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.content-notice h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.content-notice p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 17px;
+}
+
 /* ABOUT */
 
 .about-grid {
@@ -539,6 +677,7 @@ nav {
     radial-gradient(circle at 50% 50%, #9278ff44, transparent 60%),
     linear-gradient(135deg, #171f32, #102d38);
   border: 1px solid var(--border);
+  animation: float 5s ease-in-out infinite;
 }
 
 .about-text h2 {
@@ -643,13 +782,18 @@ footer {
   color: #a7aebe;
 }
 
-/* ANIMATIONS */
+/* REVEAL ANIMATION
+   Content remains visible even if JS is unavailable */
 
-/* FIXED SCROLL REVEAL */
 .reveal {
   opacity: 1;
   transform: translateY(0);
   transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.animate-ready {
+  opacity: 0;
+  transform: translateY(25px);
 }
 
 .reveal.show {
@@ -657,19 +801,9 @@ footer {
   transform: translateY(0);
 }
 
-.hero-content {
-  animation: heroEnter 1s ease both;
-}
-
 @keyframes heroEnter {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes float {
@@ -677,8 +811,8 @@ footer {
   50% { transform: translateY(-9px); }
 }
 
-.about-art {
-  animation: float 5s ease-in-out infinite;
+.hero-content {
+  animation: heroEnter 1s ease both;
 }
 
 /* BACK TO TOP */
@@ -708,39 +842,17 @@ footer {
 
 /* RESPONSIVE */
 
-@media(max-width: 900px) {
+@media(max-width: 1050px) {
   .nav-links {
-    gap: 13px;
+    display: none;
   }
 
-  .nav-links a {
-    font-size: 12px;
+  .menu-wrap {
+    display: block;
   }
 }
 
 @media(max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 75px;
-    left: 0;
-    width: 100%;
-    padding: 24px 6%;
-    background: #111827;
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 21px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
   .info-grid,
   .subject-grid,
   .about-grid {
@@ -750,6 +862,10 @@ footer {
   .resource-grid,
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .student-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .instagram-card {
@@ -798,6 +914,20 @@ footer {
     padding: 24px 18px;
   }
 
+  .student-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .student-item {
+    padding: 10px 8px;
+    gap: 8px;
+  }
+
+  .student-item span:last-child {
+    font-size: 11px;
+  }
+
   .footer-top {
     flex-direction: column;
   }
@@ -810,7 +940,8 @@ footer {
     transition-duration: .01ms !important;
   }
 
-  .reveal {
+  .reveal,
+  .reveal.animate-ready {
     opacity: 1;
     transform: none;
   }
@@ -825,20 +956,40 @@ footer {
 <header>
   <div class="container">
     <nav>
-      <a href="#home" class="logo">Class<span>Verse.</span></a>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <a href="index.html" class="logo">
+        Class<span>Verse.</span>
+      </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#class">Our Class</a></li>
-        <li><a href="#subjects">Subjects</a></li>
-        <li><a href="#resources">Study Zone</a></li>
-        <li><a href="#memories">Memories</a></li>
-        <li><a href="#instagram">Instagram</a></li>
-        <li><a href="#more">More</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
+      <!-- THREE DOT MENU -->
+      <div class="menu-wrap">
+
+        <button
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Open navigation menu"
+          aria-expanded="false">
+          ⋮
+        </button>
+
+        <div class="dropdown-menu" id="dropdownMenu">
+
+          <a href="index.html">⌂ Home</a>
+          <a href="index.html#class">🏫 Our Class</a>
+          <a href="index.html#subjects">🔬 Subjects</a>
+          <a href="study.html">📚 Study Zone</a>
+          <a href="memories.html">📸 Memories</a>
+          <a href="games.html">🎮 Games & Quiz</a>
+          <a href="notices.html">📢 Notice Board</a>
+          <a href="index.html#students">👥 Our Students</a>
+          <a href="index.html#instagram">📱 Instagram</a>
+          <a href="index.html#more">✨ Explore More</a>
+          <a href="about.html">ℹ️ About</a>
+          <a href="index.html#contact">✉️ Contact</a>
+
+        </div>
+      </div>
+
     </nav>
   </div>
 </header>
@@ -850,7 +1001,9 @@ footer {
 <section class="hero" id="home">
   <div class="container hero-content">
 
-    <span class="tag">JAWAHAR NAVODAYA VIDYALAYA • MEERUT</span>
+    <span class="tag">
+      JAWAHAR NAVODAYA VIDYALAYA • MEERUT
+    </span>
 
     <h1>
       Welcome to<br>
@@ -869,6 +1022,7 @@ footer {
     </div>
 
     <div class="hero-meta">
+
       <div class="meta-item">
         <strong>1986</strong>
         JNV Meerut Established
@@ -883,6 +1037,7 @@ footer {
         <strong>11th A</strong>
         Science Section
       </div>
+
     </div>
 
   </div>
@@ -914,8 +1069,8 @@ footer {
 
       <div class="info-card reveal">
         <div class="info-icon">🤝</div>
-        <h3>Our Batch</h3>
-        <p>Batch 2021–2028<br>Growing and learning together</p>
+        <h3>Our Community</h3>
+        <p>Batch 2021–2028<br>Learning and growing together</p>
       </div>
 
     </div>
@@ -990,6 +1145,10 @@ footer {
 
     </div>
 
+    <div style="text-align:center; margin-top:28px;">
+      <a href="study.html" class="btn">Open Study Zone ↗</a>
+    </div>
+
   </div>
 </section>
 
@@ -1004,6 +1163,7 @@ footer {
     </div>
 
     <div class="memories-box reveal">
+
       <div class="big-icon">📸</div>
 
       <h3>Every Picture Tells a Story</h3>
@@ -1026,6 +1186,13 @@ footer {
         Photos are added after review. Please share only pictures
         that everyone shown has agreed to publish.
       </p>
+
+      <div style="margin-top:25px;">
+        <a href="memories.html" class="btn btn-outline">
+          Explore All Memories ↗
+        </a>
+      </div>
+
     </div>
 
   </div>
@@ -1047,12 +1214,13 @@ footer {
         <img
           src="instaprofile.png"
           alt="Class 11th Science Instagram profile"
-          loading="lazy"
-          onerror="this.style.display='none'">
+          loading="lazy">
       </div>
 
       <div class="instagram-info">
+
         <h3>Class 11th Science</h3>
+
         <div class="handle">@_class11th.science_</div>
 
         <p>
@@ -1069,13 +1237,13 @@ footer {
           rel="noopener noreferrer">
           Follow Us on Instagram ↗
         </a>
-      </div>
 
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= MORE FEATURES ================= -->
+<!-- ================= EXPLORE MORE ================= -->
 
 <section class="section" id="more">
   <div class="container">
@@ -1090,4 +1258,410 @@ footer {
       <!-- NEONWAVE -->
 
       <div class="feature-card reveal">
-        <span class="feature-la
+
+        <span class="feature-label">MUSIC</span>
+
+        <div class="feature-icon">🎧</div>
+
+        <h3>NeonWave Music</h3>
+
+        <p>
+          NeonWave Music Listener.
+          Explore your music experience with the online music platform.
+          Free to access.
+        </p>
+
+        <a
+          class="btn"
+          href="https://eliteappssite.github.io/neonwave-music/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Listen Now ↗
+        </a>
+
+      </div>
+
+      <!-- BIRTHDAY MAGIC -->
+
+      <div class="feature-card reveal">
+
+        <span class="feature-label">CELEBRATION</span>
+
+        <div class="feature-icon">🎂</div>
+
+        <h3>Birthday Wishes Cards</h3>
+
+        <p>
+          Make someone's birthday extra special.
+          Create beautiful personalized birthday greeting cards
+          and share your wishes.
+        </p>
+
+        <a
+          class="btn"
+          href="https://eliteappssite.github.io/birthday-magic/?name=Someone+Special&message=Wishing+you+a+day+filled+with+laughter%2C+love%2C+beautiful+surprises+and+memories+that+last+forever.+Keep+shining+and+never+stop+being+amazing%21+%F0%9F%92%96&sender=&style=female"
+          target="_blank"
+          rel="noopener noreferrer">
+          Create Birthday Card ↗
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUR STUDENTS ================= -->
+
+<section class="section" id="students">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Our <span class="gradient">Students</span></h2>
+      <p>The people who make our classroom special.</p>
+    </div>
+
+    <div class="student-summary reveal">
+      <strong>34</strong>
+      <span>Total Class Members Listed</span>
+    </div>
+
+    <div class="student-list">
+
+      <div class="student-item"><span class="student-letter">A</span><span>Abhi</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Abhishek</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Aman</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Ananya</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Ankul</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Ankshika</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Anshul</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Anushka</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Arjun</span></div>
+      <div class="student-item"><span class="student-letter">A</span><span>Ayush</span></div>
+
+      <div class="student-item"><span class="student-letter">D</span><span>Daksh</span></div>
+      <div class="student-item"><span class="student-letter">D</span><span>Deepanshi</span></div>
+      <div class="student-item"><span class="student-letter">D</span><span>Devansh</span></div>
+      <div class="student-item"><span class="student-letter">D</span><span>Dhruv</span></div>
+      <div class="student-item"><span class="student-letter">D</span><span>Diksha</span></div>
+
+      <div class="student-item"><span class="student-letter">G</span><span>Garima</span></div>
+      <div class="student-item"><span class="student-letter">G</span><span>Gunjan</span></div>
+
+      <div class="student-item"><span class="student-letter">H</span><span>Harishankar</span></div>
+
+      <div class="student-item"><span class="student-letter">K</span><span>Kartik</span></div>
+
+      <div class="student-item"><span class="student-letter">L</span><span>Lakshika</span></div>
+
+      <div class="student-item"><span class="student-letter">N</span><span>Nidhi</span></div>
+
+      <div class="student-item"><span class="student-letter">P</span><span>Pari</span></div>
+
+      <div class="student-item"><span class="student-letter">R</span><span>Rajshree</span></div>
+      <div class="student-item"><span class="student-letter">R</span><span>Raihan</span></div>
+      <div class="student-item"><span class="student-letter">R</span><span>Ridhima</span></div>
+
+      <div class="student-item"><span class="student-letter">S</span><span>Sanaya</span></div>
+      <div class="student-item"><span class="student-letter">S</span><span>Shifa</span></div>
+
+      <div class="student-item"><span class="student-letter">T</span><span>Tanishq</span></div>
+      <div class="student-item"><span class="student-letter">T</span><span>Tanvi</span></div>
+      <div class="student-item"><span class="student-letter">T</span><span>Tapasvi</span></div>
+      <div class="student-item"><span class="student-letter">T</span><span>Tarun</span></div>
+
+      <div class="student-item"><span class="student-letter">V</span><span>Vaibhav</span></div>
+      <div class="student-item"><span class="student-letter">V</span><span>Vanshika G</span></div>
+      <div class="student-item"><span class="student-letter">V</span><span>Vanshika P</span></div>
+
+    </div>
+
+    <p style="text-align:center; color:var(--muted); font-size:12px; margin-top:22px; line-height:1.8;">
+      Student names are displayed for class identification.
+      Please ensure everyone has agreed before publishing this page publicly.
+    </p>
+
+  </div>
+</section>
+
+<!-- ================= CONTENT POLICY ================= -->
+
+<section class="section" id="content-policy">
+  <div class="container">
+
+    <div class="content-notice reveal">
+
+      <h3>⚠️ Content Issues or Concerns?</h3>
+
+      <p>
+        If anyone has any issues or problems with the content
+        published on this website, please DM us.
+        We respect your concerns and will review the request
+        and remove the content promptly.
+      </p>
+
+      <a
+        class="btn"
+        href="https://ig.me/m/_class11th.science_"
+        target="_blank"
+        rel="noopener noreferrer">
+        DM Us Here ↗
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="about-grid">
+
+      <div class="about-art reveal">🔬</div>
+
+      <div class="about-text reveal">
+
+        <span class="gradient">ABOUT CLASSVERSE</span>
+
+        <h2>More Than Just a Classroom.</h2>
+
+        <p>
+          ClassVerse is a digital space created for
+          Class 11th A Science students of JNV Meerut.
+          A place where learning, creativity, entertainment
+          and unforgettable school memories come together.
+        </p>
+
+        <p>
+          From study resources to school memories,
+          this platform celebrates our journey as a class.
+        </p>
+
+        <p>
+          Because school life is not just about marks and exams.
+          It is also about friendship, teamwork and experiences
+          that stay with us forever.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section" id="contact">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Get In <span class="gradient">Touch</span></h2>
+      <p>Have an idea, suggestion or photo to share?</p>
+    </div>
+
+    <div class="contact-box reveal">
+
+      <h3>Let's Connect ❤️</h3>
+
+      <p>
+        For queries, suggestions, website contributions
+        or adding photos to our Memories section,
+        contact us through Instagram DM.
+      </p>
+
+      <a
+        class="btn"
+        href="https://www.instagram.com/_class11th.science_?rpxt=eGVlZ3lnNmwzendv"
+        target="_blank"
+        rel="noopener noreferrer">
+        Message Us ↗
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <h2>Class<span class="gradient">Verse.</span></h2>
+
+        <p>
+          ClassScience || JNV Meerut<br>
+          Class 11th A • Science Section<br>
+          Batch 2021–2028 ❤️
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#class">Our Class</a>
+        <a href="index.html#subjects">Subjects</a>
+        <a href="index.html#students">Our Students</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Website Pages</h4>
+        <a href="study.html">Study Zone</a>
+        <a href="memories.html">Memories</a>
+        <a href="games.html">Games & Quiz</a>
+        <a href="notices.html">Notice Board</a>
+        <a href="about.html">About</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="#instagram">Instagram</a>
+        <a href="#more">Explore More</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#content-policy">Content Policy</a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+
+      <p>
+        © 2026 <strong>ClassVerse</strong> • All Rights Reserved.
+      </p>
+
+      <p>
+        JNV Meerut - 1986 |
+        Built by Batch - 2021 - 2028 |
+        Class Section A Science
+      </p>
+
+      <p>
+        This Website made by Flutter Website Edition.
+      </p>
+
+      <p class="disclaimer">
+        <strong>Disclaimer:</strong>
+        Decryption not allowed.
+      </p>
+
+      <p style="margin-top:10px;">
+        Made with ❤️ by Class 11th A Science
+      </p>
+
+    </div>
+
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+
+<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* THREE DOT MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+menuBtn.addEventListener("click", function(event) {
+  event.stopPropagation();
+
+  const isOpen = dropdownMenu.classList.toggle("active");
+
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+});
+
+dropdownMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    dropdownMenu.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+/* CLOSE MENU WHEN CLICKING OUTSIDE */
+
+document.addEventListener("click", function(event) {
+  if (!event.target.closest(".menu-wrap")) {
+    dropdownMenu.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
+});
+
+/* SCROLL REVEAL
+   Elements remain visible if JavaScript is unavailable */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+
+  const observer = new IntersectionObserver((entries, obs) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        entry.target.classList.remove("animate-ready");
+        obs.unobserve(entry.target);
+      }
+
+    });
+
+  }, {
+    threshold: 0.10
+  });
+
+  revealElements.forEach(element => {
+    observer.observe(element);
+  });
+
+}
+
+/* BACK TO TOP */
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > 450) {
+    topBtn.classList.add("visible");
+  } else {
+    topBtn.classList.remove("visible");
+  }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+});
+
+/* CLOSE MENU ON ESCAPE */
+
+document.addEventListener("keydown", event => {
+
+  if (event.key === "Escape") {
+    dropdownMenu.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
+
+});
+
+</script>
+
+</body>
+</html>
