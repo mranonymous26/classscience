@@ -1,0 +1,1570 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080914">
+<title>Memories | ClassVerse - ClassScience</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080914;
+  --surface: #101225;
+  --surface2: #171a31;
+  --purple: #9b6cff;
+  --cyan: #36d9f5;
+  --text: #f5f5ff;
+  --muted: #a4a8bd;
+  --border: rgba(255,255,255,.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 5%, rgba(117,72,255,.10), transparent 30%),
+    radial-gradient(circle at 90% 30%, rgba(30,210,240,.07), transparent 28%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  background: rgba(8,9,20,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -.8px;
+}
+
+.logo span {
+  background: linear-gradient(90deg,var(--purple),var(--cyan));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.logo small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.menu-wrap {
+  position: relative;
+}
+
+.menu-btn {
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--surface);
+  color: white;
+  font-size: 25px;
+  transition: .25s;
+}
+
+.menu-btn:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 220px;
+  padding: 10px;
+  border-radius: 15px;
+  background: #15172b;
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 50px #0008;
+  display: none;
+}
+
+.dropdown.active {
+  display: block;
+  animation: appear .2s ease;
+}
+
+.dropdown a {
+  display: block;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--muted);
+  border-radius: 9px;
+  transition: .2s;
+}
+
+.dropdown a:hover {
+  color: white;
+  background: #252742;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 95px 20px 65px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid rgba(155,108,255,.3);
+  border-radius: 30px;
+  color: #c5a9ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: rgba(155,108,255,.08);
+}
+
+.hero h1 {
+  font-size: clamp(43px,7vw,78px);
+  line-height: 1.08;
+  margin: 25px 0 18px;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg,#b18aff,#45e0f4);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.hero-line {
+  width: 75px;
+  height: 4px;
+  margin: 28px auto 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg,var(--purple),var(--cyan));
+}
+
+/* STATS */
+
+.stats {
+  max-width: 850px;
+  margin: 0 auto 55px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.stat {
+  background: rgba(20,22,43,.8);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 23px 10px;
+  text-align: center;
+}
+
+.stat h2 {
+  font-size: 29px;
+  background: linear-gradient(90deg,var(--purple),var(--cyan));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.stat p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 7px;
+  letter-spacing: 1px;
+}
+
+/* SEARCH AND FILTER */
+
+.controls {
+  max-width: 1100px;
+  margin: 0 auto 55px;
+  padding: 0 22px;
+}
+
+.search-box {
+  max-width: 550px;
+  margin: 0 auto 22px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  color: white;
+  outline: none;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.search-box input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 20px rgba(155,108,255,.12);
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 10px 17px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: linear-gradient(100deg,var(--purple),#6253d9);
+  border-color: transparent;
+  color: white;
+}
+
+/* RANDOM BUTTON */
+
+.random-wrap {
+  text-align: center;
+  margin: -25px 0 65px;
+}
+
+.random-btn {
+  padding: 13px 22px;
+  border: 1px solid rgba(54,217,245,.35);
+  background: rgba(54,217,245,.08);
+  color: var(--cyan);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.random-btn:hover {
+  background: var(--cyan);
+  color: #080914;
+  transform: translateY(-2px);
+}
+
+/* ALBUM SECTIONS */
+
+.albums-container {
+  max-width: 1120px;
+  margin: auto;
+  padding: 0 22px 70px;
+}
+
+.album {
+  margin-bottom: 75px;
+  animation: fadeUp .6s ease both;
+}
+
+.album-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 23px;
+}
+
+.album-heading h2 {
+  font-size: clamp(23px,4vw,34px);
+  font-weight: 800;
+  letter-spacing: -.8px;
+}
+
+.album-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.category-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: rgba(155,108,255,.12);
+  color: #c3a6ff;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.photo-count {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--cyan);
+  background: rgba(54,217,245,.08);
+  padding: 9px 13px;
+  border-radius: 30px;
+  border: 1px solid rgba(54,217,245,.15);
+}
+
+.viewer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: #101225;
+  min-height: 260px;
+}
+
+.main-image {
+  width: 100%;
+  height: 520px;
+  display: block;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: opacity .2s;
+  background: #15172b;
+}
+
+.viewer-empty {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+}
+
+.empty-icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+  opacity: .8;
+}
+
+.viewer-empty h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.viewer-empty p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+.viewer-empty a {
+  margin-top: 17px;
+  display: inline-block;
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(8,9,20,.75);
+  color: white;
+  border: 1px solid rgba(255,255,255,.2);
+  font-size: 21px;
+  z-index: 5;
+  transition: .2s;
+}
+
+.nav-btn:hover {
+  background: var(--purple);
+}
+
+.prev-btn {
+  left: 18px;
+}
+
+.next-btn {
+  right: 18px;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 45px 25px 20px;
+  background: linear-gradient(transparent,rgba(0,0,0,.75));
+  pointer-events: none;
+}
+
+.image-overlay span {
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 15px 2px 5px;
+  scrollbar-width: thin;
+}
+
+.thumb {
+  width: 85px;
+  height: 62px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 9px;
+  border: 2px solid transparent;
+  opacity: .55;
+  cursor: pointer;
+  transition: .2s;
+  background: var(--surface2);
+}
+
+.thumb:hover,
+.thumb.active {
+  opacity: 1;
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.album-divider {
+  height: 1px;
+  background: linear-gradient(90deg,transparent,var(--border),transparent);
+  margin-top: 65px;
+}
+
+/* NO RESULTS */
+
+.no-results {
+  display: none;
+  text-align: center;
+  padding: 55px 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.no-results h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* SUBMISSION */
+
+.submit-section {
+  max-width: 1050px;
+  margin: 0 auto 90px;
+  padding: 0 22px;
+}
+
+.submit-card {
+  text-align: center;
+  padding: 55px 25px;
+  border: 1px solid rgba(155,108,255,.2);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(155,108,255,.15),transparent 40%),
+    radial-gradient(circle at 90% 100%,rgba(54,217,245,.12),transparent 40%),
+    var(--surface);
+}
+
+.submit-card h2 {
+  font-size: clamp(24px,4vw,37px);
+  margin-bottom: 13px;
+}
+
+.submit-card p {
+  max-width: 560px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.submit-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 25px;
+  border-radius: 12px;
+  background: linear-gradient(100deg,var(--purple),#6355d9);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #9b6cff35;
+}
+
+/* POLICY */
+
+.policy {
+  max-width: 1050px;
+  margin: 0 auto 70px;
+  padding: 0 22px;
+}
+
+.policy-inner {
+  padding: 23px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.policy-inner strong {
+  color: white;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 20px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: rgba(5,6,15,.7);
+}
+
+.footer-logo {
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.footer-logo span {
+  color: var(--purple);
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 2;
+  margin-top: 12px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.footer-links a:hover {
+  color: var(--cyan);
+}
+
+/* FULLSCREEN MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(3,4,12,.97);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #111;
+}
+
+.modal-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.modal-controls button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: white;
+  font-size: 18px;
+}
+
+.modal-controls button:hover {
+  background: var(--purple);
+}
+
+.modal-counter {
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 70px;
+}
+
+.modal-close {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: white;
+  background: #17182b;
+  font-size: 24px;
+}
+
+.modal-caption {
+  color: white;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* BACK TO TOP */
+
+.top-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 22px;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(155,108,255,.3);
+  border-radius: 13px;
+  background: #17152b;
+  color: white;
+  font-size: 19px;
+  display: none;
+  z-index: 900;
+}
+
+.top-btn.show {
+  display: block;
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+  from {opacity:0; transform:translateY(-8px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(18px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px) {
+  header {
+    height: 68px;
+    padding: 0 5%;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .hero {
+    padding: 75px 20px 50px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .stats {
+    gap: 8px;
+    margin-bottom: 45px;
+  }
+
+  .stat {
+    padding: 17px 5px;
+  }
+
+  .stat h2 {
+    font-size: 23px;
+  }
+
+  .stat p {
+    font-size: 9px;
+  }
+
+  .album-heading {
+    align-items: flex-start;
+  }
+
+  .album-heading h2 {
+    font-size: 23px;
+  }
+
+  .photo-count {
+    font-size: 9px;
+    padding: 8px 9px;
+  }
+
+  .main-image {
+    height: 300px;
+  }
+
+  .viewer-empty {
+    min-height: 260px;
+  }
+
+  .nav-btn {
+    width: 37px;
+    height: 37px;
+    font-size: 17px;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+
+  .thumb {
+    width: 70px;
+    height: 52px;
+  }
+
+  .album {
+    margin-bottom: 55px;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal-image {
+    max-height: 70vh;
+  }
+}
+
+@media(max-width:380px) {
+  .stat h2 {
+    font-size: 20px;
+  }
+
+  .filters {
+    gap: 7px;
+  }
+
+  .filter-btn {
+    padding: 9px 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">
+    <span>ClassVerse</span>
+    <small>CLASSSCIENCE || JNV MEERUT</small>
+  </a>
+
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">⋮</button>
+
+    <nav class="dropdown" id="dropdown">
+      <a href="index.html">⌂ Home</a>
+      <a href="index.html#class">Our Class</a>
+      <a href="index.html#subjects">Subjects</a>
+      <a href="study.html">Study Zone</a>
+      <a href="memories.html">Memories</a>
+      <a href="games.html">Games & Quiz</a>
+      <a href="notices.html">Notice Board</a>
+      <a href="index.html#students">Our Students</a>
+      <a href="index.html#instagram">Instagram</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">✦ OUR CLASS • OUR STORY ✦</span>
+
+  <h1>
+    Our <span class="gradient-text">Memories.</span>
+  </h1>
+
+  <p>
+    Moments fade, but memories stay forever.
+    A collection of our school days, celebrations,
+    trips, laughter and unforgettable moments.
+  </p>
+
+  <div class="hero-line"></div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat">
+    <h2 id="eventCount">0</h2>
+    <p>EVENTS</p>
+  </div>
+
+  <div class="stat">
+    <h2 id="photoCount">0</h2>
+    <p>PHOTOS</p>
+  </div>
+
+  <div class="stat">
+    <h2>11th A</h2>
+    <p>OUR CLASS</p>
+  </div>
+</section>
+
+<!-- SEARCH AND FILTER -->
+<section class="controls">
+  <div class="search-box">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Search memories or events..."
+      aria-label="Search memories"
+    >
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-category="All">All</button>
+    <button class="filter-btn" data-category="Trip">Trips</button>
+    <button class="filter-btn" data-category="Festival">Festivals</button>
+    <button class="filter-btn" data-category="Function">Functions</button>
+    <button class="filter-btn" data-category="Classroom">Classroom</button>
+    <button class="filter-btn" data-category="Other">Others</button>
+  </div>
+</section>
+
+<!-- RANDOM MEMORY -->
+<div class="random-wrap">
+  <button class="random-btn" id="randomBtn">✦ Explore a Random Memory</button>
+</div>
+
+<!-- ALBUMS WILL BE GENERATED HERE -->
+<main class="albums-container">
+  <div id="albumsContainer"></div>
+
+  <div class="no-results" id="noResults">
+    <h3>No memories found!</h3>
+    <p>Try another search or category.</p>
+  </div>
+</main>
+
+<!-- SUBMIT MEMORY -->
+<section class="submit-section">
+  <div class="submit-card">
+    <h2>Have a <span class="gradient-text">Memory?</span></h2>
+
+    <p>
+      Have a beautiful photograph or a special moment from our class?
+      Share it with us and help make our digital yearbook even better.
+    </p>
+
+    <a
+      class="submit-btn"
+      href="https://ig.me/m/_class11th.science_"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Share Your Memories ↗
+    </a>
+  </div>
+</section>
+
+<!-- CONTENT POLICY -->
+<section class="policy">
+  <div class="policy-inner">
+    <strong>Content Issues & Concerns</strong><br>
+    If anyone has any issues or concerns regarding content published
+    on this website, please contact us through Instagram DM.
+    We respect your concerns and will review removal requests promptly.
+    Photographs of identifiable students should only be published
+    with their permission.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Class<span>Verse</span></div>
+
+  <p>
+    ClassScience || JNV Meerut<br>
+    JNV Meerut - 1986<br>
+    Built by Batch - 2021 - 2028<br>
+    Class Section A • Science Stream
+  </p>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="study.html">Study Zone</a>
+    <a href="memories.html">Memories</a>
+    <a href="about.html">About</a>
+    <a href="https://www.instagram.com/_class11th.science_?rpxt=eGVlZ3lnNmwzendv" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+  </div>
+
+  <p>
+    © 2026 ClassVerse. All rights reserved.<br>
+    This website is made for Class 11th A • Science.
+  </p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+
+<!-- FULLSCREEN IMAGE VIEWER -->
+<div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Fullscreen photo viewer">
+  <button class="modal-close" id="closeModal" aria-label="Close viewer">×</button>
+
+  <div class="modal-content">
+    <img class="modal-image" id="modalImage" src="" alt="Memory photograph">
+
+    <p class="modal-caption" id="modalCaption"></p>
+
+    <div class="modal-controls">
+      <button id="modalPrev" aria-label="Previous photo">‹</button>
+      <span class="modal-counter" id="modalCounter">1 / 1</span>
+      <button id="modalNext" aria-label="Next photo">›</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+=========================================================
+                  CLASSVERSE MEMORIES
+=========================================================
+
+HOW TO ADD A NEW EVENT:
+
+1. Add a new object inside the albums array below.
+2. Enter its title, date, category and description.
+3. Paste direct image URLs inside the photos array.
+4. Save and upload/commit this file to GitHub.
+
+IMPORTANT:
+Use direct image URLs, not album or sharing-page URLs.
+
+Example:
+photos: [
+  "https://i.ibb.co/your-image/photo1.jpg",
+  "https://i.ibb.co/your-image/photo2.jpg"
+]
+
+Available categories:
+Trip, Festival, Function, Classroom, Other
+
+=========================================================
+*/
+
+// =======================================================
+// ADD / EDIT YOUR EVENTS HERE
+// =======================================================
+
+const albums = [
+
+  {
+    title: "Dusshera 2026",
+    date: "October 2026",
+    category: "Festival",
+    description: "Our Dusshera celebration and beautiful festive moments.",
+    photos: [
+      // Paste direct photo URLs here
+    ]
+  },
+
+  {
+    title: "Class 11th Delhi Trip",
+    date: "2026",
+    category: "Trip",
+    description: "Glimpses of our unforgettable Class 11th Delhi trip.",
+    photos: [
+      // Paste direct photo URLs here
+    ]
+  },
+
+  {
+    title: "Annual Function 2026",
+    date: "2026",
+    category: "Function",
+    description: "Performances, celebrations and memories from our annual function.",
+    photos: [
+      // Paste direct photo URLs here
+    ]
+  },
+
+  {
+    title: "Independence Day 2026",
+    date: "August 2026",
+    category: "Festival",
+    description: "A day of pride, celebration and togetherness.",
+    photos: [
+      // Paste direct photo URLs here
+    ]
+  },
+
+  {
+    title: "Classroom Memories",
+    date: "2026 - 2027",
+    category: "Classroom",
+    description: "Everyday moments that made our classroom special.",
+    photos: [
+      // Paste direct photo URLs here
+    ]
+  },
+
+  {
+    title: "Farewell 2027",
+    date: "2027",
+    category: "Function",
+    description: "A collection of moments from a memorable school celebration.",
+    photos: [
+      // Paste direct photo URLs here
+    ]
+  }
+
+];
+
+// =======================================================
+// APPLICATION LOGIC - NO NEED TO EDIT BELOW THIS LINE
+// =======================================================
+
+const albumsContainer = document.getElementById("albumsContainer");
+const noResults = document.getElementById("noResults");
+const searchInput = document.getElementById("searchInput");
+
+let activeCategory = "All";
+let modalAlbumIndex = -1;
+let modalPhotoIndex = 0;
+let touchStartX = 0;
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function validPhotos(album) {
+  return Array.isArray(album.photos)
+    ? album.photos.filter(url =>
+        typeof url === "string" &&
+        /^https?:\/\/\S+$/i.test(url.trim())
+      )
+    : [];
+}
+
+function updateStats() {
+  const totalPhotos = albums.reduce(
+    (sum, album) => sum + validPhotos(album).length, 0
+  );
+
+  document.getElementById("eventCount").textContent = albums.length;
+  document.getElementById("photoCount").textContent = totalPhotos;
+}
+
+function renderAlbums() {
+  const searchTerm = searchInput.value.toLowerCase().trim();
+
+  const filteredAlbums = albums
+    .map((album, originalIndex) => ({album, originalIndex}))
+    .filter(({album}) => {
+      const matchesCategory =
+        activeCategory === "All" || album.category === activeCategory;
+
+      const searchableText = [
+        album.title,
+        album.date,
+        album.category,
+        album.description
+      ].join(" ").toLowerCase();
+
+      return matchesCategory && searchableText.includes(searchTerm);
+    });
+
+  albumsContainer.innerHTML = "";
+
+  noResults.style.display = filteredAlbums.length ? "none" : "block";
+
+  filteredAlbums.forEach(({album, originalIndex}) => {
+    const photos = validPhotos(album);
+    const safeTitle = escapeHTML(album.title);
+    const safeDate = escapeHTML(album.date);
+    const safeDescription = escapeHTML(album.description);
+    const safeCategory = escapeHTML(album.category);
+
+    const section = document.createElement("section");
+    section.className = "album";
+    section.id = "album-" + originalIndex;
+
+    if (photos.length === 0) {
+      section.innerHTML = `
+        <div class="album-heading">
+          <div>
+            <span class="category-tag">${safeCategory}</span>
+            <h2>${safeTitle}</h2>
+            <p>${safeDate} · ${safeDescription}</p>
+          </div>
+          <span class="photo-count">0 Photos</span>
+        </div>
+
+        <div class="viewer">
+          <div class="viewer-empty">
+            <div class="empty-icon">📸</div>
+            <h3>Memories Coming Soon</h3>
+            <p>
+              Photographs for this event will be added here.
+              Check back later for more memories!
+            </p>
+            <a href="https://ig.me/m/_class11th.science_" target="_blank" rel="noopener noreferrer">
+              Share Photos ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="album-divider"></div>
+      `;
+    } else {
+      section.innerHTML = `
+        <div class="album-heading">
+          <div>
+            <span class="category-tag">${safeCategory}</span>
+            <h2>${safeTitle}</h2>
+            <p>${safeDate} · ${safeDescription}</p>
+          </div>
+
+          <span class="photo-count">
+            ${photos.length} ${photos.length === 1 ? "Photo" : "Photos"}
+          </span>
+        </div>
+
+        <div class="viewer">
+          <img
+            class="main-image"
+            id="main-${originalIndex}"
+            src="${escapeHTML(photos[0])}"
+            alt="${safeTitle} memory 1"
+            loading="lazy"
+            data-album="${originalIndex}"
+          >
+
+          <button
+            class="nav-btn prev-btn"
+            data-action="prev"
+            data-album="${originalIndex}"
+            aria-label="Previous photo"
+          >‹</button>
+
+          <button
+            class="nav-btn next-btn"
+            data-action="next"
+            data-album="${originalIndex}"
+            aria-label="Next photo"
+          >›</button>
+
+          <div class="image-overlay">
+            <span id="counter-${originalIndex}">
+              01 / ${String(photos.length).padStart(2,"0")}
+            </span>
+          </div>
+        </div>
+
+        <div class="thumbnails" id="thumbs-${originalIndex}">
+          ${photos.map((url, photoIndex) => `
+            <img
+              class="thumb ${photoIndex === 0 ? "active" : ""}"
+              src="${escapeHTML(url)}"
+              alt="Thumbnail ${photoIndex + 1}"
+              loading="lazy"
+              data-action="thumb"
+              data-album="${originalIndex}"
+              data-photo="${photoIndex}"
+            >
+          `).join("")}
+        </div>
+
+        <div class="album-divider"></div>
+      `;
+
+      const mainImage = section.querySelector(".main-image");
+
+      mainImage.addEventListener("click", () => {
+        openModal(originalIndex, 0);
+      });
+
+      mainImage.addEventListener("error", () => {
+        mainImage.alt = "Image could not be loaded. Check the image URL.";
+        mainImage.style.opacity = ".35";
+      });
+    }
+
+    albumsContainer.appendChild(section);
+  });
+}
+
+function changePhoto(albumIndex, direction) {
+  const photos = validPhotos(albums[albumIndex]);
+  if (!photos.length) return;
+
+  const mainImage = document.getElementById("main-" + albumIndex);
+  const counter = document.getElementById("counter-" + albumIndex);
+  const thumbnails = document.querySelectorAll(
+    `#thumbs-${albumIndex} .thumb`
+  );
+
+  let currentIndex = Number(mainImage.dataset.current || 0);
+  currentIndex = (currentIndex + direction + photos.length) % photos.length;
+
+  mainImage.dataset.current = currentIndex;
+  mainImage.src = photos[currentIndex];
+  mainImage.alt = albums[albumIndex].title + " memory " + (currentIndex + 1);
+  mainImage.style.opacity = "1";
+
+  counter.textContent =
+    String(currentIndex + 1).padStart(2,"0") +
+    " / " +
+    String(photos.length).padStart(2,"0");
+
+  thumbnails.forEach((thumb, index) => {
+    thumb.classList.toggle("active", index === currentIndex);
+
+    if (index === currentIndex) {
+      thumb.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+    }
+  });
+}
+
+function selectPhoto(albumIndex, photoIndex) {
+  const photos = validPhotos(albums[albumIndex]);
+  if (!photos[photoIndex]) return;
+
+  const mainImage = document.getElementById("main-" + albumIndex);
+  const counter = document.getElementById("counter-" + albumIndex);
+  const thumbnails = document.querySelectorAll(
+    `#thumbs-${albumIndex} .thumb`
+  );
+
+  mainImage.dataset.current = photoIndex;
+  mainImage.src = photos[photoIndex];
+  mainImage.alt = albums[albumIndex].title + " memory " + (photoIndex + 1);
+  mainImage.style.opacity = "1";
+
+  counter.textContent =
+    String(photoIndex + 1).padStart(2,"0") +
+    " / " +
+    String(photos.length).padStart(2,"0");
+
+  thumbnails.forEach((thumb, index) => {
+    thumb.classList.toggle("active", index === photoIndex);
+  });
+}
+
+// Event delegation for slideshow controls and thumbnails
+albumsContainer.addEventListener("click", event => {
+  const button = event.target.closest("[data-action]");
+  if (!button) return;
+
+  const albumIndex = Number(button.dataset.album);
+  const action = button.dataset.action;
+
+  if (action === "prev") {
+    changePhoto(albumIndex, -1);
+  }
+
+  if (action === "next") {
+    changePhoto(albumIndex, 1);
+  }
+
+  if (action === "thumb") {
+    selectPhoto(albumIndex, Number(button.dataset.photo));
+  }
+});
+
+// FULLSCREEN MODAL
+
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalCounter = document.getElementById("modalCounter");
+const modalCaption = document.getElementById("modalCaption");
+
+function openModal(albumIndex, photoIndex) {
+  modalAlbumIndex = albumIndex;
+  modalPhotoIndex = photoIndex;
+
+  updateModal();
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  document.getElementById("closeModal").focus();
+}
+
+function closeModal() {
+  modal.classList.remove("active");
+  document.body.style.overflow = "";
+  modalAlbumIndex = -1;
+}
+
+function updateModal() {
+  if (modalAlbumIndex < 0) return;
+
+  const photos = validPhotos(albums[modalAlbumIndex]);
+  if (!photos.length) return;
+
+  modalPhotoIndex =
+    (modalPhotoIndex + photos.length) % photos.length;
+
+  modalImage.src = photos[modalPhotoIndex];
+  modalCaption.textContent = albums[modalAlbumIndex].title;
+  modalCounter.textContent =
+    (modalPhotoIndex + 1) + " / " + photos.length;
+}
+
+function modalNext(direction) {
+  if (modalAlbumIndex < 0) return;
+
+  const photos = validPhotos(albums[modalAlbumIndex]);
+  modalPhotoIndex =
+    (modalPhotoIndex + direction + photos.length) % photos.length;
+
+  updateModal();
+  selectPhoto(modalAlbumIndex, modalPhotoIndex);
+}
+
+document.getElementById("closeModal").addEventListener("click", closeModal);
+
+document.getElementById("modalPrev").addEventListener("click", () => {
+  modalNext(-1);
+});
+
+document.getElementById("modalNext").addEventListener("click", () => {
+  modalNext(1);
+});
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) closeModal();
+});
+
+// KEYBOARD CONTROLS
+
+document.addEventListener("keydown", event => {
+  if (!modal.classList.contains("active")) return;
+
+  if (event.key === "Escape") closeModal();
+  if (event.key === "ArrowRight") modalNext(1);
+  if (event.key === "ArrowLeft") modalNext(-1);
+});
+
+// MOBILE SWIPE
+
+modal.addEventListener("touchstart", event => {
+  touchStartX = event.changedTouches[0].screenX;
+}, {passive:true});
+
+modal.addEventListener("touchend", event => {
+  const touchEndX = event.changedTouches[0].screenX;
+  const difference = touchEndX - touchStartX;
+
+  if (Math.abs(difference) > 50) {
+    modalNext(difference < 0 ? 1 : -1);
+  }
+}, {passive:true});
+
+// SEARCH
+
+searchInput.addEventListener("input", renderAlbums);
+
+// CATEGORY FILTERS
+
+document.getElementById("filters").addEventListener("click", event => {
+  const button = event.target.closest(".filter-btn");
+  if (!button) return;
+
+  activeCategory = button.dataset.category;
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.classList.toggle("active", btn === button);
+  });
+
+  renderAlbums();
+});
+
+// RANDOM MEMORY
+
+document.getElementById("randomBtn").addEventListener("click", () => {
+  const availableMemories = [];
+
+  albums.forEach((album, albumIndex) => {
+    validPhotos(album).forEach((photo, photoIndex) => {
+      availableMemories.push({albumIndex, photoIndex});
+    });
+  });
+
+  if (!availableMemories.length) {
+    alert("No photos have been added yet. Add some image URLs first!");
+    return;
+  }
+
+  const randomMemory =
+    availableMemories[Math.floor(Math.random() * availableMemories.length)];
+
+  const {albumIndex, photoIndex} = randomMemory;
+
+  // Reset filters so the selected album is visible
+  activeCategory = "All";
+  searchInput.value = "";
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.category === "All");
+  });
+
+  renderAlbums();
+
+  setTimeout(() => {
+    const section = document.getElementById("album-" + albumIndex);
+
+    if (section) {
+      section.scrollIntoView({behavior:"smooth", block:"center"});
+      selectPhoto(albumIndex, photoIndex);
+      openModal(albumIndex, photoIndex);
+    }
+  }, 100);
+});
+
+// HEADER DROPDOWN
+
+const menuBtn = document.getElementById("menuBtn");
+const dropdown = document.getElementById("dropdown");
+
+menuBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  dropdown.classList.toggle("active");
+});
+
+dropdown.addEventListener("click", event => {
+  if (event.target.closest("a")) {
+    dropdown.classList.remove("active");
+  }
+});
+
+document.addEventListener("click", event => {
+  if (!event.target.closest(".menu-wrap")) {
+    dropdown.classList.remove("active");
+  }
+});
+
+// BACK TO TOP
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+  topBtn.classList.toggle("show", window.scrollY > 400);
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+// INITIALIZE
+
+updateStats();
+renderAlbums();
+
+</script>
+</body>
+</html>
