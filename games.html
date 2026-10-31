@@ -1,0 +1,2318 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080914">
+<title>Games & Quiz | ClassVerse</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+  --bg:#080914;
+  --surface:#101225;
+  --surface2:#191b32;
+  --purple:#9b6cff;
+  --cyan:#36d9f5;
+  --text:#f5f5ff;
+  --muted:#a4a8bd;
+  --border:rgba(255,255,255,.09);
+  --green:#43dfa0;
+  --red:#ff667e;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:
+  radial-gradient(circle at 10% 5%,rgba(117,72,255,.11),transparent 30%),
+  radial-gradient(circle at 90% 35%,rgba(30,210,240,.07),transparent 30%),
+  var(--bg);
+  color:var(--text);
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+/* HEADER */
+
+header{
+  height:72px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(8,9,20,.9);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-.8px;
+}
+
+.logo span{
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.logo small{
+  display:block;
+  font-size:9px;
+  color:var(--muted);
+  letter-spacing:2px;
+  margin-top:3px;
+}
+
+.menu-wrap{position:relative}
+
+.menu-btn{
+  width:43px;
+  height:43px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:var(--surface);
+  color:white;
+  font-size:25px;
+}
+
+.dropdown{
+  position:absolute;
+  right:0;
+  top:55px;
+  width:220px;
+  padding:10px;
+  background:#15172b;
+  border:1px solid var(--border);
+  border-radius:15px;
+  box-shadow:0 15px 50px #0008;
+  display:none;
+}
+
+.dropdown.active{display:block}
+
+.dropdown a{
+  display:block;
+  padding:12px;
+  font-size:13px;
+  color:var(--muted);
+  border-radius:9px;
+}
+
+.dropdown a:hover{
+  color:white;
+  background:#252742;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:90px 20px 60px;
+}
+
+.eyebrow{
+  display:inline-block;
+  padding:9px 16px;
+  border:1px solid rgba(155,108,255,.3);
+  border-radius:30px;
+  background:rgba(155,108,255,.08);
+  color:#c5a9ff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,76px);
+  line-height:1.1;
+  margin:25px 0 17px;
+  font-weight:900;
+  letter-spacing:-3px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#b18aff,#45e0f4);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:610px;
+  margin:auto;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+}
+
+.hero-line{
+  height:4px;
+  width:75px;
+  border-radius:10px;
+  margin:25px auto 0;
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+}
+
+/* MAIN */
+
+.container{
+  max-width:1120px;
+  margin:auto;
+  padding:0 22px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  max-width:850px;
+  margin:0 auto 65px;
+}
+
+.stat{
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:22px 10px;
+  text-align:center;
+  border-radius:17px;
+}
+
+.stat h2{
+  font-size:28px;
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.stat p{
+  font-size:10px;
+  color:var(--muted);
+  margin-top:7px;
+  letter-spacing:1px;
+}
+
+.section{margin-bottom:75px}
+
+.section-title{
+  margin-bottom:25px;
+}
+
+.section-title span{
+  font-size:10px;
+  color:var(--cyan);
+  letter-spacing:2px;
+  font-weight:800;
+}
+
+.section-title h2{
+  font-size:30px;
+  margin-top:9px;
+  font-weight:900;
+}
+
+.section-title p{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:9px;
+  line-height:1.7;
+}
+
+/* FEATURED */
+
+.featured{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:35px;
+  border:1px solid rgba(155,108,255,.23);
+  border-radius:23px;
+  background:
+  radial-gradient(circle at 90% 10%,rgba(54,217,245,.12),transparent 40%),
+  radial-gradient(circle at 0% 100%,rgba(155,108,255,.13),transparent 45%),
+  var(--surface);
+}
+
+.featured h2{
+  font-size:27px;
+  margin:10px 0;
+}
+
+.featured p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  max-width:500px;
+}
+
+.featured-icon{
+  font-size:75px;
+  flex-shrink:0;
+}
+
+.primary-btn{
+  border:0;
+  padding:13px 21px;
+  border-radius:11px;
+  background:linear-gradient(100deg,var(--purple),#6355d9);
+  color:white;
+  font-size:12px;
+  font-weight:800;
+  margin-top:18px;
+}
+
+.primary-btn:hover{filter:brightness(1.15)}
+
+/* GAME CARDS */
+
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.game-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:23px 17px;
+  cursor:pointer;
+  transition:.25s;
+  min-height:190px;
+}
+
+.game-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(155,108,255,.5);
+  background:#15172c;
+}
+
+.game-icon{
+  width:53px;
+  height:53px;
+  display:grid;
+  place-items:center;
+  font-size:26px;
+  background:rgba(155,108,255,.12);
+  border-radius:15px;
+  margin-bottom:17px;
+}
+
+.game-card h3{
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.game-card p{
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.7;
+}
+
+.play-label{
+  display:block;
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:800;
+  margin-top:15px;
+}
+
+/* QUIZ CARDS */
+
+.quiz-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.quiz-card{
+  padding:23px 17px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:17px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.quiz-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--cyan);
+}
+
+.quiz-card .game-icon{margin-bottom:14px}
+
+.quiz-card h3{
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.quiz-card p{
+  font-size:10px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* GAME PANEL */
+
+.game-panel{
+  display:none;
+  background:var(--surface);
+  border:1px solid rgba(155,108,255,.3);
+  border-radius:22px;
+  padding:25px;
+  margin-bottom:75px;
+  min-height:300px;
+  animation:fade .25s ease;
+}
+
+.game-panel.active{display:block}
+
+.game-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:25px;
+}
+
+.game-top h2{font-size:21px}
+
+.back-btn{
+  padding:10px 15px;
+  border:1px solid var(--border);
+  background:var(--surface2);
+  color:white;
+  border-radius:10px;
+  font-size:11px;
+}
+
+.game-content{
+  max-width:650px;
+  margin:auto;
+  text-align:center;
+}
+
+.game-content h3{
+  font-size:19px;
+  margin-bottom:15px;
+}
+
+.game-content p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+.action-btn{
+  border:1px solid rgba(54,217,245,.3);
+  background:rgba(54,217,245,.1);
+  color:var(--cyan);
+  padding:12px 19px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:800;
+  margin:7px;
+}
+
+.action-btn:hover{
+  background:var(--cyan);
+  color:#080914;
+}
+
+.game-input{
+  width:min(100%,350px);
+  display:block;
+  margin:17px auto;
+  padding:14px;
+  border:1px solid var(--border);
+  background:#090b19;
+  color:white;
+  border-radius:11px;
+  outline:none;
+  text-align:center;
+}
+
+.game-input:focus{border-color:var(--purple)}
+
+.result{
+  margin-top:20px;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.8;
+}
+
+.success{color:var(--green)}
+.error{color:var(--red)}
+.muted{color:var(--muted)}
+
+/* TIC TAC TOE */
+
+.ttt-grid{
+  display:grid;
+  grid-template-columns:repeat(3,85px);
+  gap:8px;
+  justify-content:center;
+  margin:20px auto;
+}
+
+.ttt-cell{
+  width:85px;
+  height:85px;
+  border-radius:13px;
+  border:1px solid var(--border);
+  background:#191b32;
+  color:white;
+  font-size:30px;
+  font-weight:900;
+}
+
+.ttt-cell:hover{border-color:var(--cyan)}
+
+/* RPS */
+
+.rps-options{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:25px 0;
+  flex-wrap:wrap;
+}
+
+.rps-choice{
+  width:95px;
+  height:95px;
+  border:1px solid var(--border);
+  background:#191b32;
+  border-radius:18px;
+  font-size:35px;
+}
+
+.rps-choice:hover{border-color:var(--cyan)}
+
+/* MEMORY */
+
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(4,70px);
+  gap:9px;
+  justify-content:center;
+  margin:20px auto;
+}
+
+.memory-card{
+  height:70px;
+  border:1px solid var(--border);
+  background:#191b32;
+  border-radius:12px;
+  font-size:25px;
+}
+
+.memory-card.matched{
+  background:rgba(67,223,160,.15);
+  border-color:var(--green);
+}
+
+/* SNAKE */
+
+#snakeCanvas{
+  width:min(100%,400px);
+  height:auto;
+  background:#080b18;
+  border:1px solid var(--border);
+  border-radius:12px;
+  touch-action:none;
+}
+
+.snake-controls{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:6px;
+  max-width:220px;
+  margin:15px auto;
+}
+
+.snake-controls button{
+  width:55px;
+  height:43px;
+  border:1px solid var(--border);
+  background:var(--surface2);
+  color:white;
+  border-radius:9px;
+  font-size:17px;
+}
+
+/* QUIZ */
+
+.quiz-progress{
+  height:7px;
+  background:#24263c;
+  border-radius:10px;
+  overflow:hidden;
+  margin:20px 0;
+}
+
+.quiz-progress div{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+  transition:.3s;
+}
+
+.quiz-options{
+  display:grid;
+  gap:10px;
+  margin-top:20px;
+}
+
+.quiz-option{
+  padding:14px;
+  background:#191b32;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:11px;
+  text-align:left;
+  font-size:12px;
+}
+
+.quiz-option:hover:not(:disabled){
+  border-color:var(--cyan);
+}
+
+.quiz-option.correct{
+  border-color:var(--green);
+  background:rgba(67,223,160,.12);
+}
+
+.quiz-option.wrong{
+  border-color:var(--red);
+  background:rgba(255,102,126,.12);
+}
+
+.quiz-option:disabled{cursor:default}
+
+/* LEADERBOARD */
+
+.leaderboard{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.leader-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:17px 20px;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+
+.leader-row:last-child{border-bottom:0}
+
+.leader-row span:last-child{
+  color:var(--cyan);
+  font-weight:800;
+}
+
+.leader-empty{
+  padding:35px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* DAILY */
+
+.daily-card{
+  padding:30px;
+  border-radius:20px;
+  background:linear-gradient(120deg,rgba(155,108,255,.12),rgba(54,217,245,.07));
+  border:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.daily-card h3{font-size:19px;margin-bottom:9px}
+.daily-card p{font-size:11px;color:var(--muted);line-height:1.8}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  border-top:1px solid var(--border);
+  background:#060711;
+}
+
+.footer-logo{font-size:23px;font-weight:900}
+.footer-logo span{color:var(--purple)}
+
+footer p{
+  font-size:10px;
+  color:var(--muted);
+  line-height:2;
+  margin-top:12px;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.footer-links a{font-size:11px;color:var(--muted)}
+.footer-links a:hover{color:var(--cyan)}
+
+.top-btn{
+  position:fixed;
+  bottom:22px;
+  right:20px;
+  width:44px;
+  height:44px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#17152b;
+  color:white;
+  display:none;
+  z-index:900;
+}
+
+.top-btn.show{display:block}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:850px){
+  .game-grid,.quiz-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px){
+  header{padding:0 5%;height:68px}
+  .logo{font-size:21px}
+  .hero{padding:75px 20px 50px}
+  .hero h1{letter-spacing:-2px}
+  .stats{gap:8px;margin-bottom:50px}
+  .stat{padding:16px 5px}
+  .stat h2{font-size:22px}
+  .stat p{font-size:8px}
+  .featured{padding:24px;flex-direction:column;align-items:flex-start}
+  .featured-icon{font-size:45px}
+  .section-title h2{font-size:25px}
+  .game-panel{padding:17px}
+  .game-top h2{font-size:17px}
+  .daily-card{flex-direction:column;align-items:flex-start}
+}
+
+@media(max-width:370px){
+  .game-grid,.quiz-grid{grid-template-columns:1fr}
+  .memory-grid{grid-template-columns:repeat(4,60px)}
+  .memory-card{height:60px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <span>ClassVerse</span>
+    <small>CLASSSCIENCE || JNV MEERUT</small>
+  </a>
+
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" aria-label="Navigation">⋮</button>
+    <nav class="dropdown" id="dropdown">
+      <a href="index.html">⌂ Home</a>
+      <a href="index.html#class">Our Class</a>
+      <a href="index.html#subjects">Subjects</a>
+      <a href="study.html">Study Zone</a>
+      <a href="memories.html">Memories</a>
+      <a href="games.html">Games & Quiz</a>
+      <a href="notices.html">Notice Board</a>
+      <a href="index.html#students">Our Students</a>
+      <a href="index.html#instagram">Instagram</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">✦ CLASSVERSE ENTERTAINMENT ✦</span>
+  <h1>Gaming <span class="gradient">Arena.</span></h1>
+  <p>
+    Play games, challenge your mind, test your knowledge
+    and compete with your own best scores.
+    Welcome to our interactive gaming zone!
+  </p>
+  <div class="hero-line"></div>
+</section>
+
+<main class="container">
+
+  <section class="stats">
+    <div class="stat">
+      <h2>08</h2>
+      <p>MINI GAMES</p>
+    </div>
+    <div class="stat">
+      <h2>04</h2>
+      <p>QUIZ CATEGORIES</p>
+    </div>
+    <div class="stat">
+      <h2 id="totalScore">0</h2>
+      <p>YOUR BEST SCORE</p>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="section">
+    <div class="featured">
+      <div>
+        <span class="eyebrow">FEATURED CHALLENGE</span>
+        <h2>Test Your <span class="gradient">Brain.</span></h2>
+        <p>
+          Think fast, solve questions and challenge yourself
+          with our daily Mathematics quiz.
+        </p>
+        <button class="primary-btn" onclick="startQuiz('Maths')">
+          Start Challenge →
+        </button>
+      </div>
+      <div class="featured-icon">🧠</div>
+    </div>
+  </section>
+
+  <!-- GAME PANEL -->
+  <section class="game-panel" id="gamePanel">
+    <div class="game-top">
+      <h2 id="gameTitle">Game</h2>
+      <button class="back-btn" onclick="closeGame()">← Back</button>
+    </div>
+    <div class="game-content" id="gameContent"></div>
+  </section>
+
+  <!-- MINI GAMES -->
+  <section class="section" id="miniGames">
+    <div class="section-title">
+      <span>PLAY & ENJOY</span>
+      <h2>Mini <span class="gradient">Games.</span></h2>
+      <p>Choose your favourite game and start playing.</p>
+    </div>
+
+    <div class="game-grid">
+
+      <div class="game-card" onclick="startGame('ttt')">
+        <div class="game-icon">⭕</div>
+        <h3>Tic Tac Toe</h3>
+        <p>Challenge the computer in a classic game.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('snake')">
+        <div class="game-icon">🐍</div>
+        <h3>Snake Game</h3>
+        <p>Eat food, grow longer and beat your score.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('rps')">
+        <div class="game-icon">✊</div>
+        <h3>Rock Paper Scissors</h3>
+        <p>Play against the computer.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('memory')">
+        <div class="game-icon">🧩</div>
+        <h3>Memory Match</h3>
+        <p>Find matching pairs of hidden cards.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('guess')">
+        <div class="game-icon">🔢</div>
+        <h3>Number Guessing</h3>
+        <p>Find the secret number from 1 to 100.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('reaction')">
+        <div class="game-icon">⚡</div>
+        <h3>Reaction Test</h3>
+        <p>Test how quickly you can react.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('typing')">
+        <div class="game-icon">⌨️</div>
+        <h3>Typing Speed</h3>
+        <p>Measure your typing speed and accuracy.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+      <div class="game-card" onclick="startGame('math')">
+        <div class="game-icon">➗</div>
+        <h3>Math Challenge</h3>
+        <p>Solve quick mathematical calculations.</p>
+        <span class="play-label">PLAY NOW →</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUIZZES -->
+  <section class="section" id="quizzes">
+    <div class="section-title">
+      <span>KNOWLEDGE ZONE</span>
+      <h2>Quiz <span class="gradient">Arena.</span></h2>
+      <p>Challenge your knowledge with subject-wise MCQs.</p>
+    </div>
+
+    <div class="quiz-grid">
+
+      <div class="quiz-card" onclick="startQuiz('Physics')">
+        <div class="game-icon">⚛️</div>
+        <h3>Physics Quiz</h3>
+        <p>Concepts, laws, formulas and basic physics.</p>
+        <span class="play-label">START QUIZ →</span>
+      </div>
+
+      <div class="quiz-card" onclick="startQuiz('Chemistry')">
+        <div class="game-icon">🧪</div>
+        <h3>Chemistry Quiz</h3>
+        <p>Atoms, molecules, bonding and reactions.</p>
+        <span class="play-label">START QUIZ →</span>
+      </div>
+
+      <div class="quiz-card" onclick="startQuiz('Maths')">
+        <div class="game-icon">📐</div>
+        <h3>Mathematics Quiz</h3>
+        <p>Algebra, trigonometry and calculations.</p>
+        <span class="play-label">START QUIZ →</span>
+      </div>
+
+      <div class="quiz-card" onclick="startQuiz('GK')">
+        <div class="game-icon">🌍</div>
+        <h3>General Knowledge</h3>
+        <p>Science, geography, India and world facts.</p>
+        <span class="play-label">START QUIZ →</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DAILY CHALLENGE -->
+  <section class="section">
+    <div class="section-title">
+      <span>EVERY DAY IS A NEW CHANCE</span>
+      <h2>Daily <span class="gradient">Challenge.</span></h2>
+    </div>
+
+    <div class="daily-card">
+      <div>
+        <h3>⚡ Daily Math Challenge</h3>
+        <p>A quick set of mathematical questions to test your skills.</p>
+      </div>
+      <button class="primary-btn" onclick="startQuiz('Maths')">
+        Play Today →
+      </button>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
+  <section class="section">
+    <div class="section-title">
+      <span>YOUR PERFORMANCE</span>
+      <h2>Personal <span class="gradient">Leaderboard.</span></h2>
+      <p>Your highest scores saved on this browser.</p>
+    </div>
+
+    <div class="leaderboard" id="leaderboard">
+      <div class="leader-empty">No scores yet. Start playing!</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">Class<span>Verse</span></div>
+  <p>
+    ClassScience || JNV Meerut<br>
+    JNV Meerut - 1986<br>
+    Built by Batch - 2021 - 2028<br>
+    Class Section A • Science Stream
+  </p>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="study.html">Study Zone</a>
+    <a href="memories.html">Memories</a>
+    <a href="games.html">Games</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <p>© 2026 ClassVerse. All rights reserved.</p>
+</footer>
+
+<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+// =====================================================
+// CLASSVERSE GAMES ENGINE
+// =====================================================
+
+const panel=document.getElementById("gamePanel");
+const content=document.getElementById("gameContent");
+const title=document.getElementById("gameTitle");
+
+let cleanupGame=null;
+let quizTimer=null;
+let reactionTimer=null;
+let reactionStart=0;
+let reactionReady=false;
+let reactionTimeout=null;
+let quizState=null;
+
+function showPanel(name){
+  title.textContent=name;
+  panel.classList.add("active");
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function closeGame(){
+  if(cleanupGame){cleanupGame();cleanupGame=null}
+  clearInterval(quizTimer);
+  clearTimeout(reactionTimeout);
+  panel.classList.remove("active");
+  content.innerHTML="";
+  quizState=null;
+}
+
+function saveScore(name,score){
+  let records={};
+
+  try{
+    records=JSON.parse(localStorage.getItem("cv_game_scores")||"{}");
+  }catch(e){records={}}
+
+  records[name]=Math.max(Number(records[name]||0),Number(score||0));
+
+  localStorage.setItem("cv_game_scores",JSON.stringify(records));
+  updateScores();
+}
+
+function updateScores(){
+  let records={};
+
+  try{
+    records=JSON.parse(localStorage.getItem("cv_game_scores")||"{}");
+  }catch(e){records={}}
+
+  const entries=Object.entries(records).sort((a,b)=>b[1]-a[1]);
+  const best=entries.length?Math.max(...entries.map(x=>x[1])):0;
+
+  document.getElementById("totalScore").textContent=best;
+
+  const board=document.getElementById("leaderboard");
+
+  if(!entries.length){
+    board.innerHTML='<div class="leader-empty">No scores yet. Start playing!</div>';
+    return;
+  }
+
+  board.innerHTML=entries.map((entry,index)=>`
+    <div class="leader-row">
+      <span>${index+1}. ${escapeHTML(entry[0])}</span>
+      <span>${entry[1]} points</span>
+    </div>
+  `).join("");
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+
+// =====================================================
+// GAME ROUTER
+// =====================================================
+
+function startGame(game){
+  closeGame();
+
+  const games={
+    ttt:gameTTT,
+    snake:gameSnake,
+    rps:gameRPS,
+    memory:gameMemory,
+    guess:gameGuess,
+    reaction:gameReaction,
+    typing:gameTyping,
+    math:gameMath
+  };
+
+  if(games[game])games[game]();
+}
+
+// =====================================================
+// 1. TIC TAC TOE
+// =====================================================
+
+function gameTTT(){
+  showPanel("⭕ Tic Tac Toe");
+
+  let board=Array(9).fill("");
+  let active=true;
+  let player="X";
+  let mode="computer";
+
+  content.innerHTML=`
+    <h3>Choose your opponent</h3>
+    <button class="action-btn" id="tttComputer">Play Computer</button>
+    <button class="action-btn" id="tttTwo">Two Players</button>
+    <p id="tttStatus" class="result">Choose a mode to start.</p>
+    <div class="ttt-grid" id="tttGrid"></div>
+    <button class="action-btn" id="tttRestart">Restart Game</button>
+  `;
+
+  const grid=document.getElementById("tttGrid");
+  const status=document.getElementById("tttStatus");
+
+  function render(){
+    grid.innerHTML=board.map((v,i)=>`
+      <button class="ttt-cell" data-i="${i}">${v}</button>
+    `).join("");
+  }
+
+  function winner(){
+    const lines=[
+      [0,1,2],[3,4,5],[6,7,8],
+      [0,3,6],[1,4,7],[2,5,8],
+      [0,4,8],[2,4,6]
+    ];
+
+    for(const line of lines){
+      const [a,b,c]=line;
+      if(board[a]&&board[a]===board[b]&&board[b]===board[c])
+        return board[a];
+    }
+
+    return board.every(Boolean)?"draw":null;
+  }
+
+  function finish(result){
+    active=false;
+
+    if(result==="draw"){
+      status.textContent="It's a draw!";
+    }else{
+      status.textContent=result+" wins! 🎉";
+      if(result==="X")saveScore("Tic Tac Toe",10);
+    }
+  }
+
+  function computerMove(){
+    const empty=board.map((v,i)=>v?null:i).filter(v=>v!==null);
+    if(!empty.length)return;
+
+    // Try to win, then block the player, then choose a random cell.
+    function findWinningMove(mark){
+      for(const index of empty){
+        board[index]=mark;
+        const won=winner()===mark;
+        board[index]="";
+        if(won)return index;
+      }
+      return null;
+    }
+
+    let move=findWinningMove("O");
+    if(move===null)move=findWinningMove("X");
+    if(move===null)move=empty[Math.floor(Math.random()*empty.length)];
+
+    board[move]="O";
+    render();
+
+    const result=winner();
+    if(result)finish(result);
+    else status.textContent="Your turn (X)";
+  }
+
+  function choose(index){
+    if(!active||board[index])return;
+
+    board[index]="X";
+    render();
+
+    const result=winner();
+    if(result){finish(result);return}
+
+    if(mode==="two"){
+      player="O";
+      status.textContent="Player O's turn";
+      return;
+    }
+
+    status.textContent="Computer's turn...";
+    setTimeout(computerMove,350);
+  }
+
+  grid.addEventListener("click",e=>{
+    const cell=e.target.closest("[data-i]");
+    if(!cell)return;
+
+    const index=Number(cell.dataset.i);
+
+    if(mode==="two"&&player==="O"){
+      if(!active||board[index])return;
+      board[index]="O";
+      render();
+      const result=winner();
+      if(result)finish(result);
+      else{
+        player="X";
+        status.textContent="Player X's turn";
+      }
+    }else{
+      choose(index);
+    }
+  });
+
+  function reset(selectedMode=mode){
+    board=Array(9).fill("");
+    active=true;
+    mode=selectedMode;
+    player="X";
+    status.textContent=mode==="two"?"Player X's turn":"Your turn (X)";
+    render();
+  }
+
+  document.getElementById("tttComputer").onclick=()=>reset("computer");
+  document.getElementById("tttTwo").onclick=()=>reset("two");
+  document.getElementById("tttRestart").onclick=()=>reset();
+
+  render();
+}
+
+// =====================================================
+// 2. SNAKE GAME
+// =====================================================
+
+function gameSnake(){
+  showPanel("🐍 Snake Game");
+
+  content.innerHTML=`
+    <h3>Eat food. Grow longer.</h3>
+    <p>Use arrow keys, WASD or the buttons below.</p>
+    <p class="result">Score: <span id="snakeScore">0</span></p>
+    <canvas id="snakeCanvas" width="400" height="400"></canvas>
+    <div class="snake-controls">
+      <button data-dir="up">↑</button>
+      <button data-dir="left">←</button>
+      <button data-dir="down">↓</button>
+      <button data-dir="right">→</button>
+    </div>
+    <button class="action-btn" id="snakeStart">Start / Restart</button>
+    <p id="snakeStatus" class="result">Press Start to play.</p>
+  `;
+
+  const canvas=document.getElementById("snakeCanvas");
+  const ctx=canvas.getContext("2d");
+  const size=20;
+  let snake,food,dx,dy,score,running,loop;
+
+  function randomFood(){
+    let position;
+    do{
+      position={
+        x:Math.floor(Math.random()*20),
+        y:Math.floor(Math.random()*20)
+      };
+    }while(snake.some(s=>s.x===position.x&&s.y===position.y));
+
+    return position;
+  }
+
+  function draw(){
+    ctx.fillStyle="#080b18";
+    ctx.fillRect(0,0,400,400);
+
+    ctx.fillStyle="#ff6680";
+    ctx.fillRect(food.x*size+3,food.y*size+3,14,14);
+
+    snake.forEach((part,index)=>{
+      ctx.fillStyle=index===0?"#36d9f5":"#9b6cff";
+      ctx.fillRect(part.x*size+2,part.y*size+2,16,16);
+    });
+  }
+
+  function setDirection(direction){
+    const directions={
+      up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]
+    };
+
+    const [nx,ny]=directions[direction]||[0,0];
+
+    if(nx===-dx&&ny===-dy)return;
+
+    dx=nx;
+    dy=ny;
+  }
+
+  function stop(){
+    running=false;
+    clearInterval(loop);
+    document.getElementById("snakeStatus").textContent=
+      "Game over! Final score: "+score;
+    saveScore("Snake Game",score);
+  }
+
+  function tick(){
+    const head={x:snake[0].x+dx,y:snake[0].y+dy};
+
+    if(head.x<0||head.x>=20||head.y<0||head.y>=20||
+      snake.some(part=>part.x===head.x&&part.y===head.y)){
+      stop();
+      return;
+    }
+
+    snake.unshift(head);
+
+    if(head.x===food.x&&head.y===food.y){
+      score+=10;
+      food=randomFood();
+      document.getElementById("snakeScore").textContent=score;
+    }else{
+      snake.pop();
+    }
+
+    draw();
+  }
+
+  function start(){
+    clearInterval(loop);
+    snake=[{x:10,y:10},{x:9,y:10},{x:8,y:10}];
+    dx=1;dy=0;score=0;running=true;
+    food=randomFood();
+
+    document.getElementById("snakeScore").textContent=0;
+    document.getElementById("snakeStatus").textContent="Game running!";
+    draw();
+    loop=setInterval(tick,125);
+  }
+
+  document.getElementById("snakeStart").onclick=start;
+
+  document.querySelectorAll("[data-dir]").forEach(btn=>{
+    btn.onclick=()=>setDirection(btn.dataset.dir);
+  });
+
+  function keyHandler(e){
+    const map={
+      ArrowUp:"up",ArrowDown:"down",
+      ArrowLeft:"left",ArrowRight:"right",
+      w:"up",s:"down",a:"left",d:"right"
+    };
+
+    if(map[e.key]){
+      e.preventDefault();
+      setDirection(map[e.key]);
+    }
+  }
+
+  document.addEventListener("keydown",keyHandler);
+  cleanupGame=()=>{
+    clearInterval(loop);
+    document.removeEventListener("keydown",keyHandler);
+  };
+
+  snake=[{x:10,y:10}];
+  food={x:15,y:15};
+  dx=1;dy=0;score=0;running=false;
+  draw();
+}
+
+// =====================================================
+// 3. ROCK PAPER SCISSORS
+// =====================================================
+
+function gameRPS(){
+  showPanel("✊ Rock Paper Scissors");
+
+  content.innerHTML=`
+    <h3>Choose your move!</h3>
+    <div class="rps-options">
+      <button class="rps-choice" data-choice="Rock">✊</button>
+      <button class="rps-choice" data-choice="Paper">✋</button>
+      <button class="rps-choice" data-choice="Scissors">✌️</button>
+    </div>
+    <p id="rpsResult" class="result">Make your choice.</p>
+    <p id="rpsScore" class="muted">You: 0 | Computer: 0</p>
+    <button class="action-btn" id="rpsReset">Reset Score</button>
+  `;
+
+  let you=0,computer=0;
+
+  const emoji={Rock:"✊",Paper:"✋",Scissors:"✌️"};
+
+  document.querySelectorAll("[data-choice]").forEach(button=>{
+    button.onclick=()=>{
+      const choice=button.dataset.choice;
+      const choices=["Rock","Paper","Scissors"];
+      const cpu=choices[Math.floor(Math.random()*3)];
+
+      let message="It's a draw!";
+
+      if(choice!==cpu){
+        const win=
+          (choice==="Rock"&&cpu==="Scissors")||
+          (choice==="Paper"&&cpu==="Rock")||
+          (choice==="Scissors"&&cpu==="Paper");
+
+        if(win){you++;message="You win this round! 🎉"}
+        else{computer++;message="Computer wins this round!"}
+      }
+
+      document.getElementById("rpsResult").textContent=
+        emoji[choice]+" You vs "+emoji[cpu]+" Computer — "+message;
+
+      document.getElementById("rpsScore").textContent=
+        "You: "+you+" | Computer: "+computer;
+
+      saveScore("Rock Paper Scissors",you);
+    };
+  });
+
+  document.getElementById("rpsReset").onclick=()=>{
+    you=0;computer=0;
+    document.getElementById("rpsScore").textContent="You: 0 | Computer: 0";
+    document.getElementById("rpsResult").textContent="Make your choice.";
+  };
+}
+
+// =====================================================
+// 4. MEMORY MATCH
+// =====================================================
+
+function gameMemory(){
+  showPanel("🧩 Memory Match");
+
+  const icons=["🍎","🚀","🌟","🎧","⚽","🎯","🍀","🎮"];
+  let cards=[...icons,...icons].sort(()=>Math.random()-.5);
+  let first=null,locked=false,matches=0,moves=0;
+
+  content.innerHTML=`
+    <h3>Find all matching pairs!</h3>
+    <p id="memoryStatus">Moves: 0 | Matches: 0 / 8</p>
+    <div class="memory-grid" id="memoryGrid"></div>
+    <button class="action-btn" id="memoryRestart">Restart</button>
+  `;
+
+  const grid=document.getElementById("memoryGrid");
+
+  function render(){
+    grid.innerHTML=cards.map((card,index)=>`
+      <button class="memory-card" data-index="${index}">?</button>
+    `).join("");
+  }
+
+  function flip(index){
+    if(locked)return;
+
+    const button=grid.querySelector(`[data-index="${index}"]`);
+
+    if(button.dataset.matched==="yes"||button.dataset.open==="yes")return;
+
+    button.textContent=cards[index];
+    button.dataset.open="yes";
+
+    if(first===null){
+      first=index;
+      return;
+    }
+
+    moves++;
+    const firstButton=grid.querySelector(`[data-index="${first}"]`);
+
+    if(cards[first]===cards[index]){
+      firstButton.classList.add("matched");
+      button.classList.add("matched");
+      firstButton.dataset.matched="yes";
+      button.dataset.matched="yes";
+      matches++;
+      first=null;
+      updateStatus();
+    }else{
+      locked=true;
+      const previous=first;
+      first=null;
+
+      setTimeout(()=>{
+        const a=grid.querySelector(`[data-index="${previous}"]`);
+        const b=grid.querySelector(`[data-index="${index}"]`);
+
+        if(a&&b){
+          a.textContent="?";
+          b.textContent="?";
+          a.dataset.open="no";
+          b.dataset.open="no";
+        }
+
+        locked=false;
+        updateStatus();
+      },750);
+    }
+
+    if(matches===8){
+      updateStatus();
+      saveScore("Memory Match",Math.max(10,100-moves));
+      document.getElementById("memoryStatus").textContent=
+        "Amazing! Completed in "+moves+" moves. 🎉";
+    }
+  }
+
+  function updateStatus(){
+    document.getElementById("memoryStatus").textContent=
+      "Moves: "+moves+" | Matches: "+matches+" / 8";
+  }
+
+  grid.addEventListener("click",e=>{
+    const button=e.target.closest("[data-index]");
+    if(button)flip(Number(button.dataset.index));
+  });
+
+  document.getElementById("memoryRestart").onclick=()=>{
+    cards=[...icons,...icons].sort(()=>Math.random()-.5);
+    first=null;locked=false;matches=0;moves=0;
+    render();
+    updateStatus();
+  };
+
+  render();
+}
+
+// =====================================================
+// 5. NUMBER GUESSING
+// =====================================================
+
+function gameGuess(){
+  showPanel("🔢 Number Guessing");
+
+  let secret=Math.floor(Math.random()*100)+1;
+  let attempts=0;
+  let finished=false;
+
+  content.innerHTML=`
+    <h3>Guess the secret number!</h3>
+    <p>Choose a number between 1 and 100.</p>
+    <input id="guessInput" class="game-input" type="number" min="1" max="100" placeholder="Enter your guess">
+    <button class="action-btn" id="guessSubmit">Check Guess</button>
+    <p id="guessResult" class="result">You have unlimited attempts.</p>
+    <button class="action-btn" id="guessRestart">New Game</button>
+  `;
+
+  const input=document.getElementById("guessInput");
+  const result=document.getElementById("guessResult");
+
+  function check(){
+    if(finished)return;
+
+    const value=Number(input.value);
+
+    if(!input.value||value<1||value>100||!Number.isInteger(value)){
+      result.textContent="Enter a valid whole number from 1 to 100.";
+      result.className="result error";
+      return;
+    }
+
+    attempts++;
+
+    if(value===secret){
+      finished=true;
+      result.textContent="Correct! You found it in "+attempts+" attempts. 🎉";
+      result.className="result success";
+      saveScore("Number Guessing",Math.max(10,110-attempts*10));
+    }else{
+      result.textContent=value<secret?"Too low! Try a higher number.":"Too high! Try a lower number.";
+      result.className="result";
+    }
+
+    input.value="";
+    input.focus();
+  }
+
+  document.getElementById("guessSubmit").onclick=check;
+  input.addEventListener("keydown",e=>{
+    if(e.key==="Enter")check();
+  });
+
+  document.getElementById("guessRestart").onclick=()=>{
+    secret=Math.floor(Math.random()*100)+1;
+    attempts=0;
+    finished=false;
+    input.value="";
+    result.textContent="New game started!";
+    result.className="result";
+  };
+}
+
+// =====================================================
+// 6. REACTION TEST
+// =====================================================
+
+function gameReaction(){
+  showPanel("⚡ Reaction Test");
+
+  let phase="idle";
+  let startTime=0;
+
+  content.innerHTML=`
+    <h3>How fast are your reflexes?</h3>
+    <p>Press Start, wait for green, then click as quickly as possible.</p>
+    <button class="action-btn" id="reactionStart">Start Test</button>
+    <div id="reactionArea" style="
+      min-height:180px;
+      display:grid;
+      place-items:center;
+      margin-top:20px;
+      border:1px solid var(--border);
+      border-radius:17px;
+      background:#191b32;
+      font-size:19px;
+      font-weight:800;
+      padding:20px;
+    ">Ready?</div>
+    <p id="reactionResult" class="result">Your reaction time will appear here.</p>
+  `;
+
+  const area=document.getElementById("reactionArea");
+  const result=document.getElementById("reactionResult");
+
+  function cleanup(){
+    clearTimeout(reactionTimeout);
+    phase="idle";
+  }
+
+  function start(){
+    cleanup();
+    phase="waiting";
+    area.style.background="#8b394c";
+    area.textContent="Wait for green...";
+    result.textContent="Don't click too early!";
+
+    const delay=1500+Math.random()*3500;
+
+    reactionTimeout=setTimeout(()=>{
+      phase="ready";
+      startTime=performance.now();
+      area.style.background="#16784d";
+      area.textContent="CLICK NOW!";
+    },delay);
+  }
+
+  function clickArea(){
+    if(phase==="waiting"){
+      cleanup();
+      area.style.background="#8b394c";
+      area.textContent="Too early!";
+      result.textContent="You clicked before green. Try again.";
+      return;
+    }
+
+    if(phase==="ready"){
+      const time=Math.round(performance.now()-startTime);
+      phase="done";
+      area.style.background="#191b32";
+      area.textContent=time+" ms";
+      result.textContent=
+        time<200?"Lightning fast! ⚡":
+        time<350?"Great reaction!":
+        time<550?"Good effort!":"Keep practising!";
+
+      saveScore("Reaction Test",Math.max(1,1000-time));
+    }
+  }
+
+  document.getElementById("reactionStart").onclick=start;
+  area.addEventListener("click",clickArea);
+
+  cleanupGame=()=>{
+    cleanup();
+    area.removeEventListener("click",clickArea);
+  };
+}
+
+// =====================================================
+// 7. TYPING SPEED
+// =====================================================
+
+function gameTyping(){
+  showPanel("⌨️ Typing Speed Test");
+
+  const sentences=[
+    "Learning never stops when curiosity stays alive.",
+    "Science helps us understand the world around us.",
+    "Practice makes progress and patience builds success.",
+    "Great things take time and consistent effort.",
+    "Knowledge is the key to endless possibilities."
+  ];
+
+  const sentence=sentences[Math.floor(Math.random()*sentences.length)];
+  let startTime=null;
+
+  content.innerHTML=`
+    <h3>Test your typing speed!</h3>
+    <p>Type the sentence below as quickly and accurately as possible.</p>
+    <div style="
+      background:#191b32;
+      border:1px solid var(--border);
+      padding:20px;
+      border-radius:13px;
+      margin:20px 0;
+      font-size:15px;
+      line-height:1.9;
+    ">${sentence}</div>
+    <textarea id="typingInput" class="game-input" rows="4" placeholder="Start typing here..." style="text-align:left;resize:vertical"></textarea>
+    <p id="typingResult" class="result">Timer starts with your first character.</p>
+    <button class="action-btn" id="typingRestart">New Sentence</button>
+  `;
+
+  const input=document.getElementById("typingInput");
+  const result=document.getElementById("typingResult");
+
+  input.addEventListener("input",()=>{
+    if(startTime===null)startTime=Date.now();
+
+    const typed=input.value;
+    const elapsed=Math.max((Date.now()-startTime)/60000,0.001);
+    const words=typed.trim()?typed.trim().split(/\s+/).length:0;
+    const wpm=Math.round(words/elapsed);
+
+    let correct=0;
+    for(let i=0;i<Math.min(typed.length,sentence.length);i++){
+      if(typed[i]===sentence[i])correct++;
+    }
+
+    const accuracy=typed.length?
+      Math.round(correct/typed.length*100):100;
+
+    result.textContent="Speed: "+wpm+" WPM | Accuracy: "+accuracy+"%";
+
+    if(typed===sentence){
+      result.textContent="Completed! "+wpm+" WPM | Accuracy: "+accuracy+"%";
+      result.className="result success";
+      saveScore("Typing Speed",wpm);
+      input.disabled=true;
+    }
+  });
+
+  document.getElementById("typingRestart").onclick=gameTyping;
+}
+
+// =====================================================
+// 8. MATH CHALLENGE
+// =====================================================
+
+function gameMath(){
+  showPanel("➗ Math Challenge");
+
+  let question=0,score=0,time=30,interval;
+  let answer=0,active=true;
+
+  content.innerHTML=`
+    <h3>30-Second Math Challenge</h3>
+    <p>Solve as many questions as possible before time runs out.</p>
+    <p class="result">Time: <span id="mathTime">30</span>s | Score: <span id="mathScore">0</span></p>
+    <h2 id="mathQuestion" style="font-size:35px;margin:25px"></h2>
+    <input class="game-input" id="mathInput" type="number" placeholder="Your answer">
+    <button class="action-btn" id="mathSubmit">Submit Answer</button>
+    <p id="mathResult" class="result">Press Start to begin.</p>
+    <button class="action-btn" id="mathStart">Start / Restart</button>
+  `;
+
+  const input=document.getElementById("mathInput");
+  const result=document.getElementById("mathResult");
+
+  function nextQuestion(){
+    const a=Math.floor(Math.random()*20)+1;
+    const b=Math.floor(Math.random()*20)+1;
+    const op=Math.floor(Math.random()*4);
+
+    if(op===0){answer=a+b;question=a+" + "+b}
+    if(op===1){answer=a-b;question=a+" − "+b}
+    if(op===2){answer=a*b;question=a+" × "+b}
+    if(op===3){
+      const product=a*b;
+      answer=a;
+      question=product+" ÷ "+b;
+    }
+
+    document.getElementById("mathQuestion").textContent=question+" = ?";
+    input.value="";
+    input.focus();
+  }
+
+  function submit(){
+    if(!active||!input.value)return;
+
+    if(Number(input.value)===answer){
+      score+=10;
+      result.textContent="Correct! +10 points.";
+      result.className="result success";
+    }else{
+      result.textContent="Incorrect! Correct answer: "+answer;
+      result.className="result error";
+    }
+
+    document.getElementById("mathScore").textContent=score;
+    nextQuestion();
+  }
+
+  function start(){
+    clearInterval(interval);
+    score=0;
+    time=30;
+    active=true;
+
+    document.getElementById("mathScore").textContent=0;
+    document.getElementById("mathTime").textContent=30;
+    result.textContent="Game started!";
+    result.className="result";
+
+    nextQuestion();
+
+    interval=setInterval(()=>{
+      time--;
+      document.getElementById("mathTime").textContent=time;
+
+      if(time<=0){
+        clearInterval(interval);
+        active=false;
+        result.textContent="Time's up! Final score: "+score;
+        saveScore("Math Challenge",score);
+      }
+    },1000);
+  }
+
+  document.getElementById("mathSubmit").onclick=submit;
+  input.addEventListener("keydown",e=>{
+    if(e.key==="Enter")submit();
+  });
+
+  document.getElementById("mathStart").onclick=start;
+
+  cleanupGame=()=>clearInterval(interval);
+}
+
+// =====================================================
+// QUIZ DATABASE
+// =====================================================
+
+const quizzes={
+
+Physics:[
+{
+q:"What is the SI unit of force?",
+o:["Joule","Newton","Watt","Pascal"],
+a:1,
+e:"Force is measured in Newton (N)."
+},
+{
+q:"Which quantity is a vector?",
+o:["Speed","Distance","Velocity","Time"],
+a:2,
+e:"Velocity has both magnitude and direction."
+},
+{
+q:"What is the SI unit of work?",
+o:["Joule","Newton","Watt","Metre"],
+a:0,
+e:"Work is measured in Joules."
+},
+{
+q:"What is the approximate value of g near Earth's surface?",
+o:["5.6 m/s²","9.8 m/s²","15 m/s²","20 m/s²"],
+a:1,
+e:"The acceleration due to gravity is approximately 9.8 m/s²."
+},
+{
+q:"Which law explains inertia?",
+o:["Newton's First Law","Newton's Second Law","Newton's Third Law","Law of Gravitation"],
+a:0,
+e:"Newton's First Law is also called the law of inertia."
+},
+{
+q:"What is the SI unit of power?",
+o:["Joule","Newton","Watt","Coulomb"],
+a:2,
+e:"Power is measured in watts."
+},
+{
+q:"What is momentum equal to?",
+o:["Mass × Velocity","Mass × Acceleration","Force × Mass","Speed × Time"],
+a:0,
+e:"Linear momentum is p = mv."
+},
+{
+q:"Which instrument measures electric current?",
+o:["Voltmeter","Ammeter","Barometer","Thermometer"],
+a:1,
+e:"An ammeter measures electric current."
+},
+{
+q:"What is the SI unit of energy?",
+o:["Watt","Joule","Newton","Ampere"],
+a:1,
+e:"The SI unit of energy is the joule."
+},
+{
+q:"Can sound travel through vacuum?",
+o:["Yes","No","Only at night","Only at high temperature"],
+a:1,
+e:"Sound needs a material medium to travel."
+}
+],
+
+Chemistry:[
+{
+q:"What is the atomic number of carbon?",
+o:["4","6","8","12"],
+a:1,
+e:"Carbon has atomic number 6."
+},
+{
+q:"What is the chemical symbol of sodium?",
+o:["S","So","Na","N"],
+a:2,
+e:"Sodium is represented by Na."
+},
+{
+q:"Which particle has a negative charge?",
+o:["Proton","Neutron","Electron","Nucleus"],
+a:2,
+e:"Electrons carry a negative electric charge."
+},
+{
+q:"What is the pH of pure water at 25°C?",
+o:["0","5","7","14"],
+a:2,
+e:"Pure water is neutral at pH 7."
+},
+{
+q:"Which gas is commonly used in balloons?",
+o:["Oxygen","Helium","Nitrogen","Chlorine"],
+a:1,
+e:"Helium is a light, non-flammable gas."
+},
+{
+q:"What is the formula of water?",
+o:["CO2","H2O","O2","NaCl"],
+a:1,
+e:"A water molecule contains two hydrogen atoms and one oxygen atom."
+},
+{
+q:"Who proposed the modern periodic law?",
+o:["Mendeleev","Moseley","Dalton","Rutherford"],
+a:1,
+e:"Henry Moseley established the modern periodic law based on atomic number."
+},
+{
+q:"Which bond involves sharing of electrons?",
+o:["Ionic","Covalent","Metallic only","Hydrogen"],
+a:1,
+e:"Covalent bonds involve shared electron pairs."
+},
+{
+q:"What is the charge of a proton?",
+o:["Positive","Negative","Neutral","Variable"],
+a:0,
+e:"A proton carries a positive charge."
+},
+{
+q:"Which is a noble gas?",
+o:["Oxygen","Hydrogen","Neon","Nitrogen"],
+a:2,
+e:"Neon is a noble gas in Group 18."
+}
+],
+
+Maths:[
+{
+q:"What is the value of sin 30°?",
+o:["0","1","1/2","√3/2"],
+a:2,
+e:"sin 30° = 1/2."
+},
+{
+q:"What is the derivative of x²?",
+o:["x","2x","2","x³"],
+a:1,
+e:"Using the power rule, d(x²)/dx = 2x."
+},
+{
+q:"What is the value of 7 × 8?",
+o:["54","56","64","58"],
+a:1,
+e:"7 multiplied by 8 equals 56."
+},
+{
+q:"What is the sum of angles in a triangle?",
+o:["90°","180°","270°","360°"],
+a:1,
+e:"The interior angles of a triangle add up to 180°."
+},
+{
+q:"What is cos 0°?",
+o:["0","1","-1","1/2"],
+a:1,
+e:"cos 0° = 1."
+},
+{
+q:"What is the square root of 144?",
+o:["10","11","12","14"],
+a:2,
+e:"12 × 12 = 144."
+},
+{
+q:"What is the value of 2³?",
+o:["6","8","9","12"],
+a:1,
+e:"2³ = 2 × 2 × 2 = 8."
+},
+{
+q:"What is the slope of a horizontal line?",
+o:["0","1","-1","Undefined"],
+a:0,
+e:"A horizontal line has zero slope."
+},
+{
+q:"What is the value of log₁₀ 100?",
+o:["1","2","10","100"],
+a:1,
+e:"10² = 100, so log₁₀ 100 = 2."
+},
+{
+q:"What is the sum of the first five natural numbers?",
+o:["10","12","15","20"],
+a:2,
+e:"1 + 2 + 3 + 4 + 5 = 15."
+}
+],
+
+GK:[
+{
+q:"What is the capital of India?",
+o:["Mumbai","New Delhi","Kolkata","Chennai"],
+a:1,
+e:"New Delhi is the capital of India."
+},
+{
+q:"Which is the largest planet in our Solar System?",
+o:["Earth","Mars","Jupiter","Venus"],
+a:2,
+e:"Jupiter is the largest planet in our Solar System."
+},
+{
+q:"How many colours are traditionally listed in a rainbow?",
+o:["5","6","7","8"],
+a:2,
+e:"A rainbow is traditionally described as having seven colours."
+},
+{
+q:"Which is the national animal of India?",
+o:["Lion","Bengal Tiger","Elephant","Leopard"],
+a:1,
+e:"The Bengal tiger is India's national animal."
+},
+{
+q:"Which planet is known as the Red Planet?",
+o:["Venus","Mars","Saturn","Mercury"],
+a:1,
+e:"Mars appears reddish due to iron oxide on its surface."
+},
+{
+q:"Who wrote India's national anthem?",
+o:["Mahatma Gandhi","Rabindranath Tagore","Sarojini Naidu","Bankim Chandra"],
+a:1,
+e:"Rabindranath Tagore wrote Jana Gana Mana."
+},
+{
+q:"Which is the largest ocean?",
+o:["Indian","Atlantic","Arctic","Pacific"],
+a:3,
+e:"The Pacific Ocean is the largest."
+},
+{
+q:"How many continents are there?",
+o:["5","6","7","8"],
+a:2,
+e:"There are seven continents."
+},
+{
+q:"Which organisation is associated with the United Nations?",
+o:["WHO","FIFA","ICC","NASA"],
+a:0,
+e:"WHO is the World Health Organization, a UN specialised agency."
+},
+{
+q:"What is the currency of Japan?",
+o:["Won","Yuan","Yen","Rupee"],
+a:2,
+e:"Japan's currency is the yen."
+}
+]
+
+};
+
+// =====================================================
+// QUIZ ENGINE
+// =====================================================
+
+function startQuiz(category){
+  closeGame();
+
+  const questions=quizzes[category];
+  if(!questions)return;
+
+  const shuffled=[...questions].sort(()=>Math.random()-.5);
+
+  quizState={
+    category,
+    questions:shuffled,
+    index:0,
+    score:0,
+    time:30,
+    answered:false
+  };
+
+  showPanel(category+" Quiz");
+
+  content.innerHTML=`
+    <div style="text-align:left;max-width:600px;margin:auto">
+      <div style="display:flex;justify-content:space-between;gap:10px">
+        <span id="quizNumber">Question 1 / ${shuffled.length}</span>
+        <span id="quizTime">30s</span>
+      </div>
+
+      <div class="quiz-progress"><div id="quizProgress"></div></div>
+
+      <h3 id="quizQuestion" style="line-height:1.6;margin-top:25px"></h3>
+
+      <div class="quiz-options" id="quizOptions"></div>
+
+      <p id="quizExplanation" class="result"></p>
+
+      <button id="quizNext" class="action-btn" style="display:none">
+        Next Question →
+      </button>
+    </div>
+  `;
+
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion(){
+  const state=quizState;
+  if(!state)return;
+
+  clearInterval(quizTimer);
+
+  const question=state.questions[state.index];
+  state.time=30;
+  state.answered=false;
+
+  document.getElementById("quizNumber").textContent=
+    "Question "+(state.index+1)+" / "+state.questions.length;
+
+  document.getElementById("quizProgress").style.width=
+    (state.index/state.questions.length*100)+"%";
+
+  document.getElementById("quizQuestion").textContent=question.q;
+
+  document.getElementById("quizExplanation").textContent="";
+  document.getElementById("quizNext").style.display="none";
+
+  const options=document.getElementById("quizOptions");
+
+  options.innerHTML=question.o.map((option,index)=>`
+    <button class="quiz-option" data-answer="${index}">
+      ${String.fromCharCode(65+index)}. ${escapeHTML(option)}
+    </button>
+  `).join("");
+
+  options.querySelectorAll("button").forEach(button=>{
+    button.onclick=()=>answerQuiz(Number(button.dataset.answer));
+  });
+
+  document.getElementById("quizNext").onclick=nextQuiz;
+
+  updateQuizTimer();
+
+  quizTimer=setInterval(()=>{
+    if(!quizState||quizState.answered)return;
+
+    state.time--;
+    updateQuizTimer();
+
+    if(state.time<=0){
+      answerQuiz(-1);
+    }
+  },1000);
+}
+
+function updateQuizTimer(){
+  if(!quizState)return;
+
+  document.getElementById("quizTime").textContent=
+    quizState.time+"s";
+}
+
+function answerQuiz(selected){
+  const state=quizState;
+  if(!state||state.answered)return;
+
+  state.answered=true;
+  clearInterval(quizTimer);
+
+  const question=state.questions[state.index];
+  const buttons=document.querySelectorAll(".quiz-option");
+
+  buttons.forEach((button,index)=>{
+    button.disabled=true;
+
+    if(index===question.a)button.classList.add("correct");
+    else if(index===selected)button.classList.add("wrong");
+  });
+
+  if(selected===question.a){
+    state.score+=10;
+    document.getElementById("quizExplanation").innerHTML=
+      '<span class="success">Correct! +10 points</span><br>'+escapeHTML(question.e);
+  }else{
+    document.getElementById("quizExplanation").innerHTML=
+      '<span class="error">Incorrect answer.</span><br>'+
+      'Correct answer: '+escapeHTML(question.o[question.a])+
+      '<br>'+escapeHTML(question.e);
+  }
+
+  document.getElementById("quizNext").style.display="inline-block";
+  document.getElementById("quizNext").textContent=
+    state.index===state.questions.length-1?"See Results":"Next Question →";
+}
+
+function nextQuiz(){
+  if(!quizState)return;
+
+  quizState.index++;
+
+  if(quizState.index>=quizState.questions.length){
+    finishQuiz();
+  }else{
+    renderQuizQuestion();
+  }
+}
+
+function finishQuiz(){
+  clearInterval(quizTimer);
+
+  const state=quizState;
+  if(!state)return;
+
+  const total=state.questions.length*10;
+  const percentage=Math.round(state.score/total*100);
+
+  saveScore(state.category+" Quiz",state.score);
+
+  document.getElementById("gameTitle").textContent=
+    state.category+" Quiz Results";
+
+  content.innerHTML=`
+    <div style="padding:25px">
+      <div style="font-size:55px">🏆</div>
+      <h2 style="font-size:30px;margin:15px 0">Quiz Completed!</h2>
+      <p class="gradient" style="font-size:38px;font-weight:900">
+        ${state.score} / ${total}
+      </p>
+      <p style="margin-top:12px">
+        Accuracy: ${percentage}%
+      </p>
+      <p class="result">
+        ${
+          percentage>=80?"Excellent performance! 🌟":
+          percentage>=50?"Good effort! Keep practising.":"Keep learning and try again!"
+        }
+      </p>
+      <button class="action-btn" onclick="startQuiz('${state.category}')">
+        Try Again
+      </button>
+      <button class="action-btn" onclick="closeGame()">
+        Back to Games
+      </button>
+    </div>
+  `;
+
+  quizState=null;
+}
+
+// =====================================================
+// HEADER AND SCROLL
+// =====================================================
+
+const menuBtn=document.getElementById("menuBtn");
+const dropdown=document.getElementById("dropdown");
+
+menuBtn.addEventListener("click",e=>{
+  e.stopPropagation();
+  dropdown.classList.toggle("active");
+});
+
+document.addEventListener("click",e=>{
+  if(!e.target.closest(".menu-wrap")){
+    dropdown.classList.remove("active");
+  }
+});
+
+dropdown.addEventListener("click",e=>{
+  if(e.target.closest("a"))dropdown.classList.remove("active");
+});
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+  topBtn.classList.toggle("show",window.scrollY>400);
+});
+
+topBtn.addEventListener("click",()=>{
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+// INITIALIZE
+updateScores();
+
+</script>
+
+</body>
+</html>
