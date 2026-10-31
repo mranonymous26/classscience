@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080914">
+
+<title>About Us | ClassVerse - ClassScience</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080914;
+  --surface: #101225;
+  --surface2: #171a31;
+  --purple: #9b6cff;
+  --cyan: #36d9f5;
+  --text: #f5f5ff;
+  --muted: #a4a8bd;
+  --border: rgba(255,255,255,.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(circle at 10% 5%,rgba(117,72,255,.10),transparent 30%),
+    radial-gradient(circle at 90% 35%,rgba(30,210,240,.07),transparent 30%),
+    var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  background: rgba(8,9,20,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -.8px;
+}
+
+.logo span {
+  background: linear-gradient(90deg,var(--purple),var(--cyan));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.logo small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.menu-wrap {
+  position: relative;
+}
+
+.menu-btn {
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--surface);
+  color: white;
+  font-size: 25px;
+  transition: .25s;
+}
+
+.menu-btn:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 220px;
+  padding: 10px;
+  border-radius: 15px;
+  background: #15172b;
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 50px #0008;
+  display: none;
+}
+
+.dropdown.active {
+  display: block;
+  animation: appear .2s ease;
+}
+
+.dropdown a {
+  display: block;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--muted);
+  border-radius: 9px;
+  transition: .2s;
+}
+
+.dropdown a:hover {
+  color: white;
+  background: #252742;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 105px 20px 85px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid rgba(155,108,255,.3);
+  border-radius: 30px;
+  color: #c5a9ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: rgba(155,108,255,.08);
+}
+
+.hero h1 {
+  font-size: clamp(43px,7vw,78px);
+  line-height: 1.08;
+  margin: 27px 0 20px;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg,#b18aff,#45e0f4);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-line {
+  width: 75px;
+  height: 4px;
+  margin: 30px auto 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg,var(--purple),var(--cyan));
+}
+
+/* COMMON */
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 22px;
+}
+
+.section {
+  margin-bottom: 95px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading span {
+  color: var(--cyan);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  font-size: clamp(27px,4vw,42px);
+  margin-top: 12px;
+  font-weight: 900;
+  letter-spacing: -1.2px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+/* INTRO */
+
+.intro-card {
+  padding: 45px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 0% 0%,rgba(155,108,255,.14),transparent 40%),
+    var(--surface);
+  border: 1px solid var(--border);
+}
+
+.intro-card h2 {
+  font-size: 29px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.intro-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 14px;
+}
+
+.intro-card strong {
+  color: white;
+}
+
+/* CLASS INFO */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 17px;
+}
+
+.info-card {
+  padding: 28px 23px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: .3s;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(155,108,255,.4);
+}
+
+.info-icon {
+  font-size: 29px;
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  font-size: 17px;
+  margin-bottom: 11px;
+}
+
+.info-card p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+/* JOURNEY */
+
+.journey {
+  border-left: 2px solid rgba(155,108,255,.4);
+  margin: 0 auto;
+  max-width: 750px;
+  padding-left: 30px;
+}
+
+.journey-item {
+  position: relative;
+  padding: 0 0 38px;
+}
+
+.journey-item::before {
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: 3px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--purple);
+  box-shadow: 0 0 15px rgba(155,108,255,.6);
+}
+
+.journey-item h3 {
+  font-size: 18px;
+  margin-bottom: 9px;
+}
+
+.journey-item p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* FEATURES */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 22px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: rgba(155,108,255,.12);
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.feature h3 {
+  font-size: 14px;
+  margin: 3px 0 7px;
+}
+
+.feature p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* BUILDER */
+
+.builder-card {
+  padding: 45px 25px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(54,217,245,.12),transparent 50%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 23px;
+}
+
+.builder-icon {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  border-radius: 22px;
+  background: linear-gradient(135deg,#9b6cff,#36d9f5);
+}
+
+.builder-card h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.builder-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* CONTACT */
+
+.contact-card {
+  text-align: center;
+  padding: 55px 25px;
+  border: 1px solid rgba(155,108,255,.2);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(155,108,255,.15),transparent 40%),
+    radial-gradient(circle at 90% 100%,rgba(54,217,245,.12),transparent 40%),
+    var(--surface);
+}
+
+.contact-card h2 {
+  font-size: clamp(25px,4vw,38px);
+  margin-bottom: 14px;
+}
+
+.contact-card p {
+  max-width: 550px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 25px;
+  border-radius: 12px;
+  background: linear-gradient(100deg,var(--purple),#6355d9);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #9b6cff35;
+}
+
+/* POLICY */
+
+.policy-box {
+  padding: 23px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.policy-box strong {
+  color: white;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 20px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: rgba(5,6,15,.7);
+}
+
+.footer-logo {
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.footer-logo span {
+  color: var(--purple);
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 2;
+  margin-top: 12px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.footer-links a:hover {
+  color: var(--cyan);
+}
+
+/* BACK TO TOP */
+
+.top-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 22px;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(155,108,255,.3);
+  border-radius: 13px;
+  background: #17152b;
+  color: white;
+  font-size: 19px;
+  display: none;
+  z-index: 900;
+}
+
+.top-btn.show {
+  display: block;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: .7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes appear {
+  from {opacity:0; transform:translateY(-8px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:750px) {
+  header {
+    height: 68px;
+    padding: 0 5%;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .hero {
+    padding: 80px 20px 65px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .intro-card {
+    padding: 28px 23px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    margin-bottom: 70px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">
+    <span>ClassVerse</span>
+    <small>CLASSSCIENCE || JNV MEERUT</small>
+  </a>
+
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">⋮</button>
+
+    <nav class="dropdown" id="dropdown">
+      <a href="index.html">⌂ Home</a>
+      <a href="index.html#class">Our Class</a>
+      <a href="index.html#subjects">Subjects</a>
+      <a href="study.html">Study Zone</a>
+      <a href="memories.html">Memories</a>
+      <a href="games.html">Games & Quiz</a>
+      <a href="notices.html">Notice Board</a>
+      <a href="index.html#students">Our Students</a>
+      <a href="index.html#instagram">Instagram</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">✦ GET TO KNOW US ✦</span>
+
+  <h1>
+    About <span class="gradient-text">ClassVerse.</span>
+  </h1>
+
+  <p>
+    More than just a website. A digital space created to
+    represent our class, preserve our memories and bring
+    our school journey together.
+  </p>
+
+  <div class="hero-line"></div>
+</section>
+
+<main class="container">
+
+  <!-- INTRODUCTION -->
+  <section class="section reveal">
+    <div class="intro-card">
+      <h2>
+        Welcome to <span class="gradient-text">ClassVerse</span>
+      </h2>
+
+      <p>
+        <strong>ClassVerse</strong> is the digital identity of
+        Class 11th A, Science Stream, at Jawahar Navodaya Vidyalaya,
+        Meerut.
+      </p>
+
+      <p>
+        This platform brings together our classroom journey,
+        academic resources, student information, school events
+        and unforgettable memories in one place.
+      </p>
+
+      <p>
+        From everyday classroom moments to special celebrations
+        and educational activities, ClassVerse is designed to
+        preserve the experiences that make our school life meaningful.
+      </p>
+
+      <p>
+        Our idea is simple: create a space where learning,
+        creativity and memories come together.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT OUR CLASS -->
+  <section class="section reveal">
+    <div class="section-heading">
+      <span>WHO WE ARE</span>
+      <h2>Our <span class="gradient-text">Class.</span></h2>
+      <p>A little introduction to our school and class.</p>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <div class="info-icon">🏫</div>
+        <h3>Our School</h3>
+        <p>
+          Jawahar Navodaya Vidyalaya, Meerut.
+          A place where education, discipline and
+          experiences shape our journey.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">🎓</div>
+        <h3>Our Class</h3>
+        <p>
+          Class 11th A — Science Stream.
+          A group of students learning, growing
+          and creating memories together.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">✨</div>
+        <h3>Our Identity</h3>
+        <p>
+          ClassScience || JNV Meerut.
+          A shared digital identity representing
+          our class and its journey.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OUR JOURNEY -->
+  <section class="section reveal">
+    <div class="section-heading">
+      <span>OUR STORY</span>
+      <h2>The <span class="gradient-text">Journey.</span></h2>
+      <p>Every experience becomes a part of our story.</p>
+    </div>
+
+    <div class="journey">
+
+      <div class="journey-item">
+        <h3>Our School Journey</h3>
+        <p>
+          A journey of learning, friendships, challenges
+          and experiences at JNV Meerut.
+        </p>
+      </div>
+
+      <div class="journey-item">
+        <h3>Growing Together</h3>
+        <p>
+          From classroom activities to school events,
+          every moment adds something special to our journey.
+        </p>
+      </div>
+
+      <div class="journey-item">
+        <h3>ClassVerse Begins</h3>
+        <p>
+          The idea of creating a digital space to bring
+          our class identity, resources and memories together.
+        </p>
+      </div>
+
+      <div class="journey-item">
+        <h3>Our Story Continues</h3>
+        <p>
+          More memories, more learning and more experiences
+          are waiting to become a part of our story.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WEBSITE FEATURES -->
+  <section class="section reveal">
+    <div class="section-heading">
+      <span>EXPLORE THE PLATFORM</span>
+      <h2>What's Inside <span class="gradient-text">ClassVerse?</span></h2>
+      <p>Different sections, one digital home for our class.</p>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <div>
+          <h3>Study Zone</h3>
+          <p>Study resources and academic materials for students.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📸</div>
+        <div>
+          <h3>Memories</h3>
+          <p>Photographs and special moments from our school journey.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🎮</div>
+        <div>
+          <h3>Games & Quiz</h3>
+          <p>Interactive activities and quizzes for entertainment and learning.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📢</div>
+        <div>
+          <h3>Notice Board</h3>
+          <p>Important class updates, announcements and information.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">👥</div>
+        <div>
+          <h3>Our Students</h3>
+          <p>A section representing the students of our class.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🌐</div>
+        <div>
+          <h3>Explore More</h3>
+          <p>Discover other creative projects and useful websites.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BUILT BY -->
+  <section class="section reveal">
+    <div class="builder-card">
+      <div class="builder-icon">✦</div>
+
+      <h2>Built with <span class="gradient-text">Creativity.</span></h2>
+
+      <p>
+        ClassVerse is a student-created digital project
+        developed to represent Class 11th A Science,
+        JNV Meerut.
+        <br><br>
+        Designed with a focus on simplicity, accessibility
+        and a clean user experience.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section reveal">
+    <div class="contact-card">
+      <h2>Let's Stay <span class="gradient-text">Connected.</span></h2>
+
+      <p>
+        Have a suggestion, question, correction or concern
+        about the website? Reach out to us through our
+        official class Instagram profile.
+      </p>
+
+      <a
+        class="contact-btn"
+        href="https://www.instagram.com/_class11th.science_?rpxt=eGVlZ3lnNmwzendv"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visit Our Instagram ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTENT POLICY -->
+  <section class="section reveal">
+    <div class="section-heading">
+      <span>OUR RESPONSIBILITY</span>
+      <h2>Content & <span class="gradient-text">Privacy.</span></h2>
+    </div>
+
+    <div class="policy-box">
+      <strong>Content Issues & Removal Requests</strong><br>
+      If anyone has any issues or concerns regarding content
+      published on this website, please contact us through
+      Instagram DM. We respect your concerns and will review
+      removal requests promptly.
+
+      <br><br>
+
+      <strong>Privacy & Respect</strong><br>
+      We believe in respecting everyone's privacy.
+      Identifiable photographs and personal information
+      should only be published with the individual's permission.
+
+      <br><br>
+
+      <strong>Disclaimer</strong><br>
+      ClassVerse is an independent student-created project.
+      It is not an official website of Jawahar Navodaya Vidyalaya
+      or Navodaya Vidyalaya Samiti.
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Class<span>Verse</span></div>
+
+  <p>
+    ClassScience || JNV Meerut<br>
+    JNV Meerut - 1986<br>
+    Built by Batch - 2021 - 2028<br>
+    Class Section A • Science Stream
+  </p>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="study.html">Study Zone</a>
+    <a href="memories.html">Memories</a>
+    <a href="games.html">Games & Quiz</a>
+    <a href="notices.html">Notice Board</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <p>
+    © 2026 ClassVerse. All rights reserved.<br>
+    This website is made for Class 11th A • Science.
+  </p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+// HEADER DROPDOWN
+
+const menuBtn = document.getElementById("menuBtn");
+const dropdown = document.getElementById("dropdown");
+
+menuBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  dropdown.classList.toggle("active");
+});
+
+dropdown.addEventListener("click", event => {
+  if (event.target.closest("a")) {
+    dropdown.classList.remove("active");
+  }
+});
+
+document.addEventListener("click", event => {
+  if (!event.target.closest(".menu-wrap")) {
+    dropdown.classList.remove("active");
+  }
+});
+
+// BACK TO TOP
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+  topBtn.classList.toggle("show", window.scrollY > 400);
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+// SCROLL REVEAL
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+</script>
+
+</body>
+</html>
